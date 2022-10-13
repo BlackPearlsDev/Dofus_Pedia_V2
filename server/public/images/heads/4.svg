@@ -1,0 +1,40 @@
+<svg width="520" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <defs>
+   <g transform="matrix(1,0,0,1,-7.3,-2.55) " id="svg_11">
+    <path id="svg_17" fill-rule="evenodd" fill="#443431" d="m15.1,8.85q0.45,1.05 0.15,2.15l-0.6,1.55q-0.35,-0.1 -2.15,-1.45l-2.25,-2q0.75,-0.05 0.1,-3.1q-0.65,-3.3 -0.05,-3.45l4.35,3q-0.2,1.75 0.45,3.3"/>
+    <path id="svg_18" fill-rule="evenodd" fill="#ffffff" d="m10.1,13.55q-1,-1.2 -2.2,-1.7l-0.6,-2.35l0.55,-1.6l0.25,0.1l-0.35,-0.7l1.05,-2.1l2.6,-0.6q1.25,0.15 2,1.3l0,1.15q0.4,1 0.3,1.8q0.5,0.2 0.35,0.9l-0.8,0.45l-0.2,0.55l-1.55,0.05l-0.45,-0.2l-1.1,-0.25l-0.6,-0.05l-0.65,-1.2l-0.15,0.6l0.1,1.3q1.05,0.5 1.65,1.35l0.85,-0.1l0.3,-0.05l0.45,0.5l-0.2,0.75l-1.6,0.1"/>
+    <path id="svg_19" fill-rule="evenodd" fill="#a49360" d="m11.9,12.7l-0.45,-0.5l-0.3,0.05l-0.05,-0.35l-1.3,-1.2l0.15,-0.35l1.1,0.25l0.85,0.8l0.05,1.3l-0.05,0"/>
+    <path id="svg_20" stroke-width="0.05" stroke-opacity="0.50196" stroke-linejoin="round" stroke-linecap="round" stroke="#212121" fill="none" d="m10.1,13.55l1.6,-0.1l0.2,-0.75m1.15,-1.95l0.2,-0.55l0.8,-0.45q0.15,-0.7 -0.35,-0.9q0.1,-0.8 -0.3,-1.8m-1.45,5.65l-0.05,-1.3l-0.85,-0.8"/>
+    <path id="svg_21" fill-rule="evenodd" fill="#000000" d="m10.25,6.7l1.1,0.95l0.1,0.95q-0.5,0.3 -0.95,0.65l-1.3,-0.9l0.05,-1.2l1,-0.45"/>
+    <path id="svg_22" fill-rule="evenodd" fill="#000000" d="m13.15,7.05l0.35,1.15l-0.5,0.8l-0.6,-0.3l-0.25,-1l0.45,-0.95l0.55,0.3"/>
+   </g>
+   <g transform="matrix(1,0,0,1,4.9,6) " id="svg_10">
+    <use id="svg_23" xlink:href="#svg_9" width="9.8" transform="matrix(1,0,0,1,-4.9,-6) " height="12.05"/>
+   </g>
+   <g transform="matrix(1,0,0,1,4.9,6) " id="svg_9">
+    <path id="svg_24" fill-rule="evenodd" fill="#9f59aa" d="m3.5,-1.55l-1.1,0.6q-2.15,2.8 -2,4.3q0.1,1.55 -1.4,2.55q-0.35,0.4 -1.75,-0.3q-1.45,-0.75 -1.85,-1.9l-0.15,-0.45l-0.05,-1.7l0.6,-1l0,-0.6l0.15,-0.7l0.65,-0.95q-0.2,-1.45 0.15,-2.05l0.1,-0.15l1.4,-1.75q0.5,-0.4 1.2,-0.35l0.7,0.1q1.35,0.45 3.15,2.25l1.6,1.75l-1,0.25l-0.4,0.1"/>
+   </g>
+   <g transform="matrix(1,0,0,1,-4.05,-0.9) " id="svg_8">
+    <path id="svg_25" stroke-width="0.05" stroke-opacity="0.50196" stroke-linejoin="round" stroke-linecap="round" stroke="#212121" fill="none" d="m13.45,5.65l1.1,-0.25l-1.7,-1.9q-1.95,-1.9 -3.4,-2.4l-0.75,-0.1q-0.75,-0.05 -1.3,0.35q-0.75,0.6 -1.5,1.9l-0.1,0.15q-0.4,0.65 -0.15,2.2q-0.5,0.35 -0.7,1.05l-0.2,0.75l0,0.65l-0.6,1.05q-0.25,0.85 0.05,1.85l0.15,0.45q0.4,1.25 2,2.05q1.5,0.75 1.85,0.35q1.6,-1.1 1.5,-2.75q-0.15,-1.6 2.15,-4.65q0.45,-0.35 1.2,-0.6"/>
+    <path id="svg_26" fill-rule="evenodd" fill-opacity="0.15294" fill="#161b1f" d="m5.85,3.15q0.75,-1.3 1.5,-1.9q0.55,-0.4 1.3,-0.35q-3.45,3.05 1.4,4.8l2.95,-0.05q-0.75,0.3 -1.2,0.65q-2.3,3 -2.15,4.65q0.1,1.65 -1.5,2.7q-0.35,0.45 -1.85,-0.3q-1.6,-0.8 -2,-2.05l-0.15,-0.5q2.4,0.4 0.55,-3.5l0.2,-0.8q3.45,5.55 3.05,3.4q-0.45,-2.2 -0.3,-3.65q0.15,-1.5 -1.8,-3.1"/>
+   </g>
+  </defs>
+  <g stroke="null" id="svg_27">
+   <g stroke="null" id="svg_14" transform="matrix(45.405200352107066,0,0,45.405200352107066,-13734390.183775403,-10300304.693882508) ">
+    <use stroke="null" x="302480.96576" y="226852.13768" id="svg_15" xlink:href="#svg_11" width="8.05" transform="matrix(1,0,0,1,7.3,2.55) " height="11"/>
+    <use stroke="null" x="281692.08955" y="211261.07067" xlink:href="#svg_10" width="9.8" transform="matrix(1.0738,0,0,1.0738,4.0385,1.0073) " id="svg_12" height="12.05"/>
+    <use stroke="null" x="302480.96576" y="226852.13768" id="svg_16" xlink:href="#svg_8" width="10.5" transform="matrix(1,0,0,1,4.05,0.9) " height="13.05"/>
+   </g>
+  </g>
+ </g>
+</svg>

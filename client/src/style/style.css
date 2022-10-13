@@ -1,0 +1,603 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+/* Font custom (local) */
+@font-face {
+    font-family: 'A Charming Font Expanded';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Achafexp'), url('../assets/font/Achafexp.woff') format('woff');
+}
+
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASE */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    background-color: #E5CFB3;
+}
+
+/* HEADER + NAV */
+header {
+    background: url("../assets/img/header.jpg")  no-repeat;
+    /* background-size: 100%; A METTRE DANS LES MEDIA QUERIES POUR ORDI */
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: absolute;
+    top: 93px;
+    right: 0;
+    background-color: #93866C;
+    z-index: 100;
+    border-bottom-left-radius: 10px;
+}
+
+.header-nav a {
+    color: #E5CFB3;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid #E5CFB3;
+}
+
+.sectionNav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.btnNav {
+    margin: 5px;
+    padding: 5px;
+    background: inherit;
+    border-radius: 5px;
+    border: transparent;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+    color: aliceblue;
+}
+
+.btnNav:active {
+    transform: scale(0.9);
+}
+
+/* MAIN ELEMENTS */
+h1 {
+    font-size: 6rem;
+    color: aliceblue;
+    font-family: 'A Charming Font Expanded';
+    text-shadow: 4px 4px 4px #93866C;
+}
+
+main {
+    color: #514A3C;
+    font-family: "Segoe UI Symbol";
+}
+
+.mainContent h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 300;
+}
+
+.mainContent {
+    max-width: 80%;
+    margin: 0 auto;
+    min-height: calc(90vh - 97px);
+}
+
+.overlay {
+    background-color: rgba(17, 17, 17, 0.703);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    transition: all 0.5s;
+}
+
+.loadingData {
+    text-align: center;
+    margin: 10%;
+    color: #514A3C;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+/* HOME PAGE */
+.sectionNews {
+    margin: 5% 0 5% 0;
+    border-radius: 5px;
+}
+
+.zoneTitleDate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #514A3C;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #EBDBC6;
+    padding: 6px;
+}
+
+.zoneContent {
+    display: flex;
+}
+
+.zoneContent article {
+    background-color: #EBDBC6;
+    padding: 6px;
+}
+
+.zoneAuthorImgName {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.zoneAuthorImgName img {
+    background-color: rgba(81,74,60,.25);
+    width: 100px;
+    padding: 5px;
+}
+
+
+.authorName {
+    background-color: #93866C;
+    color: #EBDBC6;
+    text-align: center;
+}
+
+/* CLASSES PAGE */
+.allClassesIcons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.allClassesIcons a {
+    padding: 5px;
+    margin: 5px;
+    background-color: #514A3C;
+    border-radius: 5px;
+}
+
+.allClassesIcons img {
+    width: 100px;
+    height: 100px;
+}
+
+/* CLASSES PAGE OUTLET*/
+/* .classeOutlet {
+    insert here
+} */
+
+.classeName {
+    text-align: center;
+    background-color: #514A3C;
+    color: #C9BF9D;
+    margin: 10px 0 20px 0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.classeOutlet h4 {
+    font-size: 2rem;
+}
+
+.txtClasseDesc {
+    background-color: #514A3C;
+    color: #C9BF9D;
+    width: 40%;
+    text-align: center;
+    padding: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-decoration: underline;
+}
+
+.classeDesc {
+    text-align: center;
+    background-color: #514A3C;
+    color: #C9BF9D;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 8px;
+}
+
+.classesCaraH4 {
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+.classeTableCara, .classeTableWeapons {
+    border-collapse: collapse;
+    margin: 0 0 30px 0;
+    width: 100%;
+}
+
+.classeTableCara tr:nth-child(odd), .classeTableWeapons tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.classeTableCara th {
+    border-collapse: collapse;
+    background-color: #93866C;
+    color: #514A3C;
+    padding: 2px;
+}
+
+.classeTableCara td {
+    text-align: center;
+    padding: 4px;
+}
+
+/* les premières lignes de la table avec les icônes élémentaires */
+.startRowIcons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 800;
+}
+
+.classeTableWeapons thead {
+    background-color: #93866C;
+    color: #514A3C;
+}
+
+.classeTableWeapons tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+}
+
+.icons-weapons {
+    width: 80%;
+    height: 50px;
+}
+
+.classeTableWeapons td {
+    text-align: center;
+    padding: 2px;
+}
+
+/* BESTIARY PAGE */
+/* .sectionMonster {
+    border: 1px solid black;
+} */
+
+.monsterCard {
+    margin: 20px 0 20px 0;
+    background-color: #EBDBC6;
+}
+
+.monsterHeadInfos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #514A3C;
+    color: #EBDBC6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 6px;
+}
+
+.monsterCard h3 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.monsterLevel {
+    background-color: #C9BF9D;
+    color: #514A3C;
+    border-radius: 5px;
+    padding: 4px;
+    font-weight: 800;
+}
+
+.monsterContent {
+    display: flex;
+}
+
+.monsterContentInfos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.imgMonster {
+    background-color: rgba(81, 74, 60, 0.25);
+}
+
+.imgMonster img {
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+}
+
+/* imgMonsterLittle = disposition différente pour les petits écrans */
+.imgMonsterLittle {
+    background-color: #514A3C;
+}
+
+.imgMonsterLittle img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.infosMonster {
+    background-color: #514A3C;
+}
+
+.specMonster {
+    color: #EBDBC6;
+    padding: 4px;
+}
+
+.statsMonster h4 {
+    background-color: #93866C;
+    color: #EBDBC6;
+    padding: 8px;
+    font-weight: 400;
+}
+
+.statsMonster ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px 0 5px 0;
+    padding: 6px;
+}
+
+.statsMonster ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.statsMonster p {
+    padding: 6px;
+}
+
+.icons-monsters {
+    width: 20px;
+    height: 20px;
+}
+
+.headHideInfos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #93866C;
+    padding: 6px;
+}
+
+.headHideInfos button {
+    border: transparent;
+    border-radius: 50%;
+    background-color: #514A3C;
+    color: #EBDBC6;
+    padding: 4px;
+    font-weight: 400;
+}
+
+/* MAP PAGE */
+.mapFrame {
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+/* USER ENTRY PAGE */
+.formUserEntry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 0;
+}
+
+.formUserEntry input {
+    margin: 10px 0 10px 0;
+    padding: 6px;
+    border: 1px solid #93866C;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btnSubmit {
+    background-color: #514A3C;
+    color: #EBDBC6;
+}
+
+.mainContent p a {
+    color: #93866C;
+    text-decoration: none;
+}
+
+.txtErrorEntry {
+    text-align: center;
+    color: red;
+}
+
+/* USER DASHBOARD PAGE */
+.txtMyAccount {
+    /* margin-top: 20px; */
+    background-color: #514A3C;
+    color: #EBDBC6;
+    padding: 6px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 300;
+}
+
+.userDashboardContent {
+    display: flex;
+    background-color: #EBDBC6;
+    color: black;
+}
+
+.userImgDashboard {
+    background-color: #C9BF9D;
+    padding: 6px;
+    width: 40%;
+    height: 120px;
+}
+
+.userImgDashboard img {
+    width: 100%;
+    margin: 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userDashboardInfos {
+    padding: 6px;
+    line-height: 26px;
+    width: 100%;
+}
+
+.userDashboardInfos p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.txtBrown {
+    color: #514A3C;
+}
+
+.h2MyInfos {
+    margin-bottom: 20px;
+}
+
+/* ADMIN PAGE */
+.adminLinks {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0 20px 0;
+}
+
+.adminLinks a {
+    width: 50%;
+    margin: 6px;
+    padding: 6px;
+    background-color: #514A3C;
+    color: #EBDBC6;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* ADMIN MONSTER PAGE */
+.formAddMonster {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formAddMonster input {
+    width: 45%;
+    margin: 4px;
+    padding: 2px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+}
+
+.formAddMonster input::placeholder {
+    color: #EBDBC6;
+}
+
+.formAddMonster select {
+    width: 45%;
+    margin: 4px;
+    padding: 2px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+}
+
+.formAddMonster .btnAddMonster {
+    background-color: #514A3C;
+    border: 1px solid #93866C;
+    width: 80%;
+    margin-top: 30px;
+    font-size: 2rem;
+    padding: 6px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #514A3C;
+    color: #EBDBC6;
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    color: #EBDBC6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #93866C;
+}
+
+/* -------------------------------------- START MEDIA QUERIES -------------------------------------- */
+
+/* petit telephone avant 370px */
+@media screen and (max-width: 370px) {
+    
+    .mainContent {
+        min-height: calc(90vh - 115px);
+    }
+
+    .txtClasseDesc {
+        width: 50%;
+    }
+
+    .startRowIcons {
+        justify-content: flex-start;
+    }
+
+    .userImgDashboard {
+        height: 150px;
+    }
+}
+
+/* petit telephone avant 424px */
+@media screen and (max-width: 424px) {
+    
+    .statsMonster ul {
+        padding: 2px;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+}
