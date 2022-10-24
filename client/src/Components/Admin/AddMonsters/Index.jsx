@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToggle } from '../../../store/slices/menu.slice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { addMonster, addImg } from '../../../services/API/monsters';
 
-function ManageMonsters({ecosystem, race}) {
+function AddMonsters({ecosystem, race}) {
 
     const dispatch = useDispatch();
+    const fileInput = useRef();
     const { isToggle } = useSelector((state) => ({...state.menu}));
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
@@ -25,188 +27,88 @@ function ManageMonsters({ecosystem, race}) {
         setInfosToggle(!infosToggle);
     }
 
-    const [valueName, setValueName] = useState('');
-    const [valueEcosystem, setValueEcosystem] = useState('');
-    const [valueRace, setValueRace] = useState('');
-    const [valueLevel, setValueLevel] = useState('');
-    const [valueHealth, setValueHealth] = useState('');
-    const [valuePA, setValuePA] = useState('');
-    const [valuePM, setValuePM] = useState('');
-    const [valueExperience, setValueExperience] = useState('');
-    const [valueInitiative, setValueInitiative] = useState('');
-    const [valueStrength, setValueStrength] = useState('');
-    const [valueIntelligence, setValueIntelligence] = useState('');
-    const [valueChance, setValueChance] = useState('');
-    const [valueAgility, setValueAgility] = useState('');
-    const [valueDodgePA, setValueDodgePA] = useState('');
-    const [valueDodgePM, setValueDodgePM] = useState('');
-    const [valueResiNeutral, setValueResiNeutral] = useState('');
-    const [valueResiEarth, setValueResiEarth] = useState('');
-    const [valueResiFire, setValueResiFire] = useState('');
-    const [valueResiWater, setValueResiWater] = useState('');
-    const [valueResiWind, setValueResiWind] = useState('');
-    // const [valueSpells, setValueSpells] = useState('');
-    // const [valueDrops, setValueDrops] = useState('');
-    // const [valueZones, setValueZones] = useState('');
+    const [inputs, setInputs] = useState({ valueName: "", valueEcosystem: "", valueRace: "", valueLevel: "", valueHealth: "", valuePA: "", valuePM: "", valueExperience: "", valueInitiative: "", valueStrength: "", valueIntelligence: "", valueChance: "", valueAgility: "", valueDodgePA: "", valueDodgePM: "", valueResiNeutral: "", valueResiEarth: "", valueResiFire: "", valueResiWater: "", valueResiWind: "", valueSpells: "", valueDrops: "", valueZones: "", image_name: null});
+    // pour les selects faire UN SEUL handleChange qui execute une fonction qui fais une requetes API vers le back
 
-
-    const handleChangeName = (e) => {
+    const handleSubmit = async (e) => {
+        const formData = new FormData();
         e.preventDefault();
-        setValueName(e.target.value);
+        if (inputs.image_name) {
+            formData.append('image', inputs.image_name);
+            const res1 = await addImg(formData);
+            if (res1.status === 200) {
+                const datas = {
+                    ...inputs,
+                    image_name : res1.data.url,
+                }
+                const res2 = await addMonster(datas);
+                if (res2.status === 200) {
+                    console.log('monster added with image');
+                }
+            } else {
+                console.log('error');
+            }
+        } else {
+            const res = await addMonster(inputs);
+            if (res.status === 200) {
+                console.log('monster added');
+            }
+        }
     }
 
-    const handleChangeEcosystem = (e) => {
+    const handleInputs = (e) => {
         e.preventDefault();
-        setValueEcosystem(e.target.value);
-        console.log('valueEcosystem:', e.target.value);
+        const {name, value} = e.target;
+        setInputs({...inputs, [name]: value});
+        console.log('inputs', inputs);
+        //setImage(fileInput.current.files[0]);
     }
-
-    const handleChangeRace = (e) => {
-        e.preventDefault();
-        setValueRace(e.target.value);
-    }
-
-    const handleChangeLevel = (e) => {
-        e.preventDefault();
-        setValueLevel(e.target.value);
-    }
-
-    const handleChangeHealth = (e) => {
-        e.preventDefault();
-        setValueHealth(e.target.value);
-    }
-
-    const handleChangePA = (e) => {
-        e.preventDefault();
-        setValuePA(e.target.value);
-    }
-
-    const handleChangePM = (e) => {
-        e.preventDefault();
-        setValuePM(e.target.value);
-    }
-
-    const handleChangeExperience = (e) => {
-        e.preventDefault();
-        setValueExperience(e.target.value);
-    }
-
-    const handleChangeInitiative = (e) => {
-        e.preventDefault();
-        setValueInitiative(e.target.value);
-    }
-
-    const handleChangeStrength = (e) => {
-        e.preventDefault();
-        setValueStrength(e.target.value);
-    }
-
-    const handleChangeIntelligence = (e) => {
-        e.preventDefault();
-        setValueIntelligence(e.target.value);
-    }
-
-    const handleChangeChance = (e) => {
-        e.preventDefault();
-        setValueChance(e.target.value);
-    }
-
-    const handleChangeAgility = (e) => {
-        e.preventDefault();
-        setValueAgility(e.target.value);
-    }
-
-    const handleChangeDodgePA = (e) => {
-        e.preventDefault();
-        setValueDodgePA(e.target.value);
-    }
-
-    const handleChangeDodgePM = (e) => {
-        e.preventDefault();
-        setValueDodgePM(e.target.value);
-    }
-
-    const handleChangeResiNeutral = (e) => {
-        e.preventDefault();
-        setValueResiNeutral(e.target.value);
-    }
-
-    const handleChangeResiEarth = (e) => {
-        e.preventDefault();
-        setValueResiEarth(e.target.value);
-    }
-
-    const handleChangeResiFire = (e) => {
-        e.preventDefault();
-        setValueResiFire(e.target.value);
-    }
-
-    const handleChangeResiWater = (e) => {
-        e.preventDefault();
-        setValueResiWater(e.target.value);
-    }
-
-    const handleChangeResiWind = (e) => {
-        e.preventDefault();
-        setValueResiWind(e.target.value);
-    }
-
-    // const handleChangeSpells = (e) => {
-    //     e.preventDefault();
-    //     setValueSpells(e.target.value);
-    // }
-
-    // const handleChangeDrops = (e) => {
-    //     e.preventDefault();
-    //     setValueDrops(e.target.value);
-    // }
-
-    // const handleChangeZones = (e) => {
-    //     e.preventDefault();
-    //     setValueZones(e.target.value);
-    // }
 
     return (
         <main>
             <div className={isToggle ? "overlay" : undefined} onClick={() => dispatch(setToggle(!isToggle))}></div>
 
             <section className="mainContent">
-                <h2>Gestion des monstres</h2>
+                <h2>Ajouter un monstre</h2>
 
-                <form action="" className='formAddMonster'>
-                    <input type="text" placeholder="Nom du monstre" onChange={handleChangeName} value={valueName}/>
-                    <select name="ecosystem" id="ecosystem" onChange={handleChangeEcosystem} value={valueEcosystem}>
+                <form onSubmit={handleSubmit} className='formAddMonster'>
+                    <input type="text" name="valueName" placeholder="Nom du monstre" onChange={handleInputs} value={inputs.valueName}/>
+                    <select name="valueEcosystem" id="ecosystem" onChange={handleInputs} value={inputs.valueEcosystem}>
                         <option value="">Écosystème</option>
                         {ecosystem.map((ecosystem, index) => (
                             <option key={index} value={ecosystem.id}>{ecosystem.ecosystem_name}</option>
                         ))}
                     </select>
-                    <select name="race" id="race" onChange={handleChangeRace} value={valueRace}>
+                    <select name="valueRace" id="race" onChange={handleInputs} value={inputs.valueRace}>
                         <option value="">Race</option>
                         {race.map((race, index) => (
                             <option key={index} value={race.id}>{race.race_name}</option>
                         ))}
                     </select>
-                    <input type="number" placeholder="Niveau" max="5000" onChange={handleChangeLevel} value={valueLevel}/>
-                    <input type="number" placeholder="Points de vie" max="100000" onChange={handleChangeHealth} value={valueHealth}/>
-                    <input type="number" placeholder="PA" max="50" onChange={handleChangePA} value={valuePA}/>
-                    <input type="number" placeholder="PM" max="50" onChange={handleChangePM} value={valuePM}/>
-                    <input type="number" placeholder="Gain d'éxpérience" max="999999" onChange={handleChangeExperience} value={valueExperience}/>
-                    <input type="number" placeholder="Initiative" max="15000" onChange={handleChangeInitiative} value={valueInitiative}/>
-                    <input type="number" placeholder="Puissance Terre" max="5000" onChange={handleChangeStrength} value={valueStrength}/>
-                    <input type="number" placeholder="Puissance Feu" max="5000" onChange={handleChangeIntelligence} value={valueIntelligence}/>
-                    <input type="number" placeholder="Puissance Eau" max="5000" onChange={handleChangeChance} value={valueChance}/>
-                    <input type="number" placeholder="Puissance Air" max="5000" onChange={handleChangeAgility} value={valueAgility}/>
-                    <input type="number" placeholder="Esquive PA" max="5000" onChange={handleChangeDodgePA} value={valueDodgePA}/>
-                    <input type="number" placeholder="Esquive PM" max="5000" onChange={handleChangeDodgePM} value={valueDodgePM}/>
-                    <input type="number" placeholder="Résistance Neutre" max="5000" onChange={handleChangeResiNeutral} value={valueResiNeutral}/>
-                    <input type="number" placeholder="Résistance Terre" max="5000" onChange={handleChangeResiEarth} value={valueResiEarth}/>
-                    <input type="number" placeholder="Résistance Feu" max="5000" onChange={handleChangeResiFire} value={valueResiFire}/>
-                    <input type="number" placeholder="Résistance Eau" max="5000" onChange={handleChangeResiWater} value={valueResiWater}/>
-                    <input type="number" placeholder="Résistance Air" max="5000" onChange={handleChangeResiWind} value={valueResiWind}/>
-                    <input type="text" placeholder="Sorts" /> {/* mettre un select a la place qui récupère les données BDD */}
-                    <input type="text" placeholder="Drops" /> {/* mettre un select a la place qui récupère les données BDD */}
-                    <input type="text" placeholder="Zones" /> {/* mettre un select a la place qui récupère les données BDD */}
+                    <input type="number" name="valueLevel" placeholder="Niveau" max="5000" onChange={handleInputs} value={inputs.valueLevel}/>
+                    <input type="number" name="valueHealth" placeholder="Points de vie" max="100000" onChange={handleInputs} value={inputs.valueHealth}/>
+                    <input type="number" name="valuePA" placeholder="PA" max="50" onChange={handleInputs} value={inputs.valuePA}/>
+                    <input type="number" name="valuePM" placeholder="PM" max="50" onChange={handleInputs} value={inputs.valuePM}/>
+                    <input type="number" name="valueExperience" placeholder="Gain d'éxpérience" max="999999" onChange={handleInputs} value={inputs.valueExperience}/>
+                    <input type="number" name="valueInitiative" placeholder="Initiative" max="15000" onChange={handleInputs} value={inputs.valueInitiative}/>
+                    <input type="number" name="valueStrength" placeholder="Puissance Terre" max="5000" onChange={handleInputs} value={inputs.valueStrength}/>
+                    <input type="number" name="valueIntelligence" placeholder="Puissance Feu" max="5000" onChange={handleInputs} value={inputs.valueIntelligence}/>
+                    <input type="number" name="valueChance" placeholder="Puissance Eau" max="5000" onChange={handleInputs} value={inputs.valueChance}/>
+                    <input type="number" name="valueAgility" placeholder="Puissance Air" max="5000" onChange={handleInputs} value={inputs.valueAgility}/>
+                    <input type="number" name="valueDodgePA" placeholder="Esquive PA" max="5000" onChange={handleInputs} value={inputs.valueDodgePA}/>
+                    <input type="number" name="valueDodgePM" placeholder="Esquive PM" max="5000" onChange={handleInputs} value={inputs.valueDodgePM}/>
+                    <input type="number" name="valueResiNeutral" placeholder="Résistance Neutre" max="5000" onChange={handleInputs} value={inputs.valueResiNeutral}/>
+                    <input type="number" name="valueResiEarth" placeholder="Résistance Terre" max="5000" onChange={handleInputs} value={inputs.valueResiEarth}/>
+                    <input type="number" name="valueResiFire" placeholder="Résistance Feu" max="5000" onChange={handleInputs} value={inputs.valueResiFire}/>
+                    <input type="number" name="valueResiWater" placeholder="Résistance Eau" max="5000" onChange={handleInputs} value={inputs.valueResiWater}/>
+                    <input type="number" name="valueResiWind" placeholder="Résistance Air" max="5000" onChange={handleInputs} value={inputs.valueResiWind}/>
+                    <input type="text" name="valueSpells" placeholder="Sorts" onChange={handleInputs} value={inputs.valueSpells}/> {/* mettre un select a la place qui récupère les données BDD */}
+                    <input type="text" name="valueDrops" placeholder="Drops" onChange={handleInputs} value={inputs.valueDrops}/> {/* mettre un select a la place qui récupère les données BDD */}
+                    <input type="text"  name="valueZones" placeholder="Zones" onChange={handleInputs} value={inputs.valueZones}/> {/* mettre un select a la place qui récupère les données BDD */}
+                    <label className="custom-file-upload">
+                        <input type="file" name="image_name" id="image_name" ref={fileInput} onChange={() => setInputs({...inputs, image_name: fileInput.current.files[0]})}/>
+                        Choisir l'image du monstre
+                    </label>
 
                     <input type="submit" value="Ajouter le monstre" className='btnAddMonster'/>
                 </form>
@@ -216,18 +118,15 @@ function ManageMonsters({ecosystem, race}) {
                     <h2>Preview</h2>
 
                     <div className='monsterPreview'>
-                        <div className='monsterPreviewImg'>
-                            {/* <img src="/images/monsters/monster1.png" alt="Icone du monstre" /> */}
-                        </div>
 
                         <article className="monsterCard">
                             <div className='monsterHeadInfos'>
-                                <h3>{valueName}</h3>
-                                <p className='monsterLevel'>Niv.{valueLevel}</p>
+                                <h3>{inputs.valueName}</h3>
+                                <p className='monsterLevel'>Niv.{inputs.valueLevel}</p>
                             </div>
 
                             <div className='imgMonsterLittle'>
-                                <img src={``} alt={`icone du monstre`} />
+                                <img src={inputs.image_name != null ? `images/monsters/${fileInput.current.files[0]}` : `/images/monsters/gfxNotFound.svg`} alt={`icone du monstre`} />
                             </div>
 
                             <div className='monsterContent'>
@@ -247,8 +146,8 @@ function ManageMonsters({ecosystem, race}) {
                                 <div className='monsterContentInfos'>
                                     <div className='infosMonster'>
                                         <article className='specMonster'>
-                                            <p>Écosystème: {valueEcosystem}</p>
-                                            <p>Race: {valueRace}</p>
+                                            <p>Écosystème: {inputs.valueEcosystem}</p>
+                                            <p>Race: {inputs.valueRace}</p>
                                         </article>
                                     </div>
 
@@ -258,51 +157,51 @@ function ManageMonsters({ecosystem, race}) {
                                         <ul>
                                             <li>
                                                 <img src={"/images/icons/Vita.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueHealth}</p>
+                                                <p>{inputs.valueHealth}</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/PA.svg"} alt="" className="icons-monsters" />
-                                                <p>{valuePA}</p>
+                                                <p>{inputs.valuePA}</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/PM.svg"} alt="" className="icons-monsters" />
-                                                <p>{valuePM}</p>
+                                                <p>{inputs.valuePM}</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/XP.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueExperience}</p>
+                                                <p>{inputs.valueExperience}</p>
                                             </li>
                                         </ul>
 
                                         <ul>
                                             <li>
                                                 <img src={"/images/icons/Init.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueInitiative}</p>
+                                                <p>{inputs.valueInitiative}</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/earth.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueStrength}</p>
+                                                <p>{inputs.valueStrength}</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/fire.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueIntelligence}</p>
+                                                <p>{inputs.valueIntelligence}</p>
                                             </li>
                                         </ul>
 
                                         <ul>
                                             <li>
                                                 <img src={"/images/icons/water.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueChance}</p>
+                                                <p>{inputs.valueChance}</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/Air.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueAgility}</p>
+                                                <p>{inputs.valueAgility}</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -313,12 +212,12 @@ function ManageMonsters({ecosystem, race}) {
                                         <ul>
                                             <li>
                                                 <img src={"/images/icons/PA.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueDodgePA}%</p>
+                                                <p>{inputs.valueDodgePA}%</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/PM.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueDodgePM}%</p>
+                                                <p>{inputs.valueDodgePM}%</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -330,29 +229,29 @@ function ManageMonsters({ecosystem, race}) {
 
                                             <li>
                                                 <img src={"/images/icons/neutral.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueResiNeutral}%</p>
+                                                <p>{inputs.valueResiNeutral}%</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/earth.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueResiEarth}%</p>
+                                                <p>{inputs.valueResiEarth}%</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/fire.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueResiFire}%</p>
+                                                <p>{inputs.valueResiFire}%</p>
                                             </li>
                                         </ul>
 
                                         <ul>
                                             <li>
                                                 <img src={"/images/icons/water.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueResiWater}%</p>
+                                                <p>{inputs.valueResiWater}%</p>
                                             </li>
 
                                             <li>
                                                 <img src={"/images/icons/Air.svg"} alt="" className="icons-monsters" />
-                                                <p>{valueResiWind}%</p>
+                                                <p>{inputs.valueResiWind}%</p>
                                             </li>
                                         </ul>
                                     </div>
@@ -366,7 +265,7 @@ function ManageMonsters({ecosystem, race}) {
                                         </div>
 
                                         {infosToggle && (
-                                            <p>{}</p>
+                                            <p>{inputs.valueSpells}</p>
                                         )}
                                     </div>
 
@@ -379,7 +278,7 @@ function ManageMonsters({ecosystem, race}) {
                                         </div>
 
                                         {infosToggle && (
-                                            <p>{}</p>
+                                            <p>{inputs.valueZones}</p>
                                         )}
                                     </div>
 
@@ -392,7 +291,7 @@ function ManageMonsters({ecosystem, race}) {
                                         </div>
 
                                         {infosToggle && (
-                                            <p>{}</p>
+                                            <p>{inputs.valueDrops}</p>
                                         )}
                                     </div>
                                 </div>
@@ -405,4 +304,4 @@ function ManageMonsters({ecosystem, race}) {
     )
 }
 
-export default ManageMonsters;
+export default AddMonsters;

@@ -22,8 +22,8 @@ function Admin() {
                 <h2>Gestion admin</h2>
 
                 <article className='adminLinks'>
-                    <Link to='manageMonsters' onClick={handleToggle}>Gestion des monstres</Link>
-                    <Link to='/admin/manageClasses'>Gestion des classes | TODO</Link>
+                    <Link to='addMonsters' onClick={handleToggle}>Ajout d'un monstre</Link>
+                    <Link to='deleteMonsters' onClick={handleToggle}>Suppression d'un monstre</Link>
                     <Link to='/admin/manage-spells'>Gestion des sorts | TODO</Link>
                     <Link to='/admin/manage-items'>Gestion des objets | TODO</Link>
                 </article>

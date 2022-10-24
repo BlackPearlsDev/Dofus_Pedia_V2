@@ -16,7 +16,6 @@ function Login() {
 
     const handleLogin = async(e) => {
         e.preventDefault();
-        console.log(inputs);
 		const inputsSanitized = validate(inputs);
 		const res = await login(inputsSanitized);
 		console.log('res data:', res);

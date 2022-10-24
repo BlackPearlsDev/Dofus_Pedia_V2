@@ -2,6 +2,8 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 
 # TODO
 
+## Revoir l'interface l'ergonomie du formulaire d'ajout de mob (select different)
+
 ## Classes /!\ FAIRE UN SEUL COMPOSANT DYNAMIQUE QUI GERE TOUTES LES CLASSES /!\
 - dans le router path="/classes/:name" (name = nom de la classe)
 - dans le composant, faire un fetch sur l'API pour récupérer les infos de la classe
@@ -17,7 +19,8 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 même style de fiche que celui du bestiaire. ✔️
 
 Ajout en cours: 
-- Ajout de monstres avec preview ♾️
+- Ajout de monstres avec preview ✔️ (juste revoir l'image qui se montre pas)
+- Supression de monstres ✔️
 
 
 ## Page Classe créer une ancre (anchor) pour aller directement aux infos de la classe cliquée

@@ -21,13 +21,16 @@ function Bestiary({ monsters }) {
         };
     });
 
+    // faire un useEffect qui effectue une requete AJAX sur la nouvelle route pour cette requete (SELECT ecosystem_id, ecosystem.id, ecosystem.ecosystem_name AS monsterEcosystem FROM monster JOIN ecosystem ON ecosystem.id = monster.ecosystem_id)
+    // modifier la requete prendre tout (comme all * sauf l'ID de monster)
+
     const [infosToggle, setInfosToggle] = useState(true); // sur vrai au départ car on veut voir les infos en arrivant sur la page
 
     const handleToggle = () => {
         setInfosToggle(!infosToggle);
     }
 
-    const renderEcosystem = (ecoInfos) => {
+    const renderEcosystem = (ecoInfos) => { // pas nul mais vaut mieux faire un switch (a changer completement si ma requete est faite)
         if (ecoInfos === 1) {
             return <p>Ecosystème: Créatures des champs</p>
         } else if (ecoInfos === 2) {
@@ -89,7 +92,7 @@ function Bestiary({ monsters }) {
                             {widthScreen < 425 ? (
                                 <>
                                 <div className='imgMonsterLittle'>
-                                    <img src={`images/monsters/${mob.id}.svg`} alt={`icone du monstre ${mob.monster_name}`} />
+                                    <img src={mob.image_name != null ? `images/monsters/${mob.image_name}` : `images/monsters/gfxNotFound.svg`} alt={`icone du monstre ${mob.monster_name}`} />
                                 </div>
                                 </>
                             ) : (
@@ -103,7 +106,7 @@ function Bestiary({ monsters }) {
                                     <>
                                     
                                     <div className='imgMonster'>
-                                        <img src={`images/monsters/${mob.id}.svg`} alt={`icone du monstre ${mob.monster_name}`} />
+                                        <img src={mob.image_name != null ? `images/monsters/${mob.image_name}` : `images/monsters/gfxNotFound.svg`} alt={`icone du monstre ${mob.monster_name}`}/>
                                     </div>
                                     </>
                                 ) : (
@@ -115,7 +118,7 @@ function Bestiary({ monsters }) {
                                 <div className='monsterContentInfos'>
                                     <div className='infosMonster'>
                                         <article className='specMonster'>
-                                            {renderEcosystem(mob.ecosystem)}
+                                            {renderEcosystem(mob.ecosystem)} {/* a refaire */}
                                             <p>Race: {mob.race}</p>
                                         </article>
                                     </div>

@@ -26,7 +26,8 @@ import Dashboard from "../Components/Pages/User/Dashboard/Index";
 import Logout from "../Components/Entry/Logout/Index";
 // Import Pages Admin
 import Admin from "../Components/Admin/Index";
-import ManageMonsters from "../Components/Admin/manageMonsters/Index";
+import AddMonsters from "../Components/Admin/AddMonsters/Index";
+import DeleteMonsters from "../Components/Admin/DeleteMonsters/Index";
 // import NotFound from "../Components/Pages/NotFound/Index";
 
 function Router() {
@@ -56,7 +57,8 @@ function Router() {
             <Route path="user/:uuid" element={<HOC child={Dashboard} isAuthRequired={true} />} />
             <Route path="logout" element={ <HOC child={Logout}/> } />
             <Route path="admin" element={ <HOC child={Admin} isAuthRequired={true} /> } >
-                <Route path="manageMonsters" element={ <HOC child={ManageMonsters}/> } />
+                <Route path="addMonsters" element={ <HOC child={AddMonsters}/> } />
+                <Route path="deleteMonsters" element={ <HOC child={DeleteMonsters}/> } />
             </Route>
 
             {/* <Route path="*" element={<NotFound />}/> */}

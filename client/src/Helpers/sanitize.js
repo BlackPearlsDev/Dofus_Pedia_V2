@@ -13,21 +13,31 @@ export const validate = (inputs) => {
         } else return true;
     }
 
-    if (window.location.pathname === "/admin/addCategories") {
+    if (window.location.pathname === "/admin/manageMonsters") {
         const inputsSanitized = {
-            category_name : inputs.category_name.trim(),
-        }
-        return inputsSanitized;
-    }
-
-    if (window.location.pathname === "/admin/addProducts") {
-        const inputsSanitized = {
-            title : inputs.title.trim(),
-            description : inputs.description.trim(),
-            image_name : inputs.image_name,
-            quantityInStock : inputs.quantityInStock.trim(),
-            price : inputs.price.trim(),
-            category_id : inputs.category_id.trim(),
+            valueName : inputs.valueName.trim(),
+            // valueEcosystem : inputs.valueEcosystem.trim(),
+            // valueRace : inputs.valueRace.trim(),
+            // valueLevel : inputs.valueLevel.trim(),
+            // valueHealth : inputs.valueHealth.trim(),
+            // valuePA : inputs.valuePA.trim(),
+            // valuePM : inputs.valuePM.trim(),
+            // valueExperience : inputs.valueExperience.trim(),
+            // valueInitiative : inputs.valueInitiative.trim(),
+            // valueStrength : inputs.valueStrength.trim(),
+            // valueIntelligence : inputs.valueIntelligence.trim(),
+            // valueChance : inputs.valueChance.trim(),
+            // valueAgility : inputs.valueAgility.trim(),
+            // valueDodgePA : inputs.valueDodgePA.trim(),
+            // valueDodgePM : inputs.valueDodgePM.trim(),
+            // valueResiNeutral : inputs.valueResiNeutral.trim(),
+            // valueResiEarth : inputs.valueResiEarth.trim(),
+            // valueResiFire : inputs.valueResiFire.trim(),
+            // valueResiWater : inputs.valueResiWater.trim(),
+            // valueResiWind : inputs.valueResiWind.trim(),
+            valueSpells : inputs.valueSpells.trim(),
+            valueDrops : inputs.valueDrops.trim(),
+            valueZones : inputs.valueZones.trim(),
         }
         return inputsSanitized;
     }

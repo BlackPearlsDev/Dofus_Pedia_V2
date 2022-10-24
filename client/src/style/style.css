@@ -511,7 +511,7 @@ main {
     text-align: center;
 }
 
-/* ADMIN MONSTER PAGE */
+/* ADMIN ADD MONSTER OUTLET */
 .formAddMonster {
     display: flex;
     justify-content: center;
@@ -533,6 +533,22 @@ main {
     color: #EBDBC6;
 }
 
+.formAddMonster input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    text-align: center;
+    width: 80%;
+    margin: 4px;
+    padding: 2px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .formAddMonster select {
     width: 45%;
     margin: 4px;
@@ -550,6 +566,31 @@ main {
     margin-top: 30px;
     font-size: 2rem;
     padding: 6px;
+}
+
+/* ADMIN DELETE MONSTER OUTLET */
+.listMonstersToDelete {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 4px;
+    padding: 4px;
+    color: #EBDBC6;
+    background-color: #93866C;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+}
+
+.btnDeleteMonster {
+    background-color: transparent;
+    border: transparent;
+    color: #514A3C;
+    font-size: 1.6rem;
+}
+
+.btnDeleteMonster:hover {
+    color: #E5CFB3;
+    text-decoration: underline;
 }
 
 /* FOOTER */
