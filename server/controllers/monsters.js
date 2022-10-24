@@ -80,7 +80,6 @@ export const deleteMonster = async (req, res, next) => {
     try {
         // const {id} = req.body;
         const id = req.params.id;
-        console.log("id", id);
         const query = `DELETE FROM monster WHERE id = ?`;
         const result = await Query.getDataByValue(query, id);
 

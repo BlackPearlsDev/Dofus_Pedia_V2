@@ -33,7 +33,7 @@ function AddMonsters({ecosystem, race}) {
     const handleSubmit = async (e) => {
         const formData = new FormData();
         e.preventDefault();
-        if (inputs.image_name) {
+        if (inputs.image_name !== null) {
             formData.append('image', inputs.image_name);
             const res1 = await addImg(formData);
             if (res1.status === 200) {
@@ -60,8 +60,6 @@ function AddMonsters({ecosystem, race}) {
         e.preventDefault();
         const {name, value} = e.target;
         setInputs({...inputs, [name]: value});
-        console.log('inputs', inputs);
-        //setImage(fileInput.current.files[0]);
     }
 
     return (
