@@ -1,15 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setToggle } from '../../../store/slices/menu.slice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { addMonster, addImg } from '../../../services/API/monsters';
 
-function AddMonsters({ecosystem, race}) {
+function AddMonsters({ecosystem, race, spells}) {
 
     const dispatch = useDispatch();
     const fileInput = useRef();
+    const navigate = useNavigate();
     const { isToggle } = useSelector((state) => ({...state.menu}));
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
@@ -44,6 +46,7 @@ function AddMonsters({ecosystem, race}) {
                 const res2 = await addMonster(datas);
                 if (res2.status === 200) {
                     console.log('monster added with image');
+                    navigate(`/admin`);
                 }
             } else {
                 console.log('error');
@@ -52,6 +55,7 @@ function AddMonsters({ecosystem, race}) {
             const res = await addMonster(inputs);
             if (res.status === 200) {
                 console.log('monster added');
+                navigate(`/admin`);
             }
         }
     }
@@ -100,7 +104,12 @@ function AddMonsters({ecosystem, race}) {
                     <input type="number" name="valueResiFire" placeholder="Résistance Feu" max="5000" onChange={handleInputs} value={inputs.valueResiFire}/>
                     <input type="number" name="valueResiWater" placeholder="Résistance Eau" max="5000" onChange={handleInputs} value={inputs.valueResiWater}/>
                     <input type="number" name="valueResiWind" placeholder="Résistance Air" max="5000" onChange={handleInputs} value={inputs.valueResiWind}/>
-                    <input type="text" name="valueSpells" placeholder="Sorts" onChange={handleInputs} value={inputs.valueSpells}/> {/* mettre un select a la place qui récupère les données BDD */}
+                    <select name="valueSpells" id="spells" onChange={handleInputs} value={inputs.valueSpells}>
+                        <option value="">Sorts</option>
+                        {spells.map((spell, index) => (
+                            <option key={index} value={spell.id}>({spell.id}) {spell.spell_name}</option>
+                        ))}
+                    </select>
                     <input type="text" name="valueDrops" placeholder="Drops" onChange={handleInputs} value={inputs.valueDrops}/> {/* mettre un select a la place qui récupère les données BDD */}
                     <input type="text"  name="valueZones" placeholder="Zones" onChange={handleInputs} value={inputs.valueZones}/> {/* mettre un select a la place qui récupère les données BDD */}
                     <label className="custom-file-upload">
@@ -123,16 +132,24 @@ function AddMonsters({ecosystem, race}) {
                                 <p className='monsterLevel'>Niv.{inputs.valueLevel}</p>
                             </div>
 
-                            <div className='imgMonsterLittle'>
-                                <img src={inputs.image_name != null ? `images/monsters/${fileInput.current.files[0]}` : `/images/monsters/gfxNotFound.svg`} alt={`icone du monstre`} />
-                            </div>
+                            {widthScreen < 767 ? (
+                                <>
+                                    <div className='imgMonsterLittle'>
+                                        <img src={inputs.image_name != null ? `images/monsters/${fileInput.current.files[0]}` : `/images/monsters/gfxNotFound.svg`} alt={`icone du monstre`} />
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    {/* rien ici */}
+                                </>
+                            )}
 
                             <div className='monsterContent'>
                             {widthScreen > 767 ? (
                                     <>
                                     
                                     <div className='imgMonster'>
-                                        <img src="" alt="" />
+                                    <img src={inputs.image_name != null ? `images/monsters/${fileInput.current.files[0]}` : `/images/monsters/gfxNotFound.svg`} alt={`icone du monstre`} />
                                     </div>
                                     </>
                                 ) : (
@@ -152,6 +169,59 @@ function AddMonsters({ecosystem, race}) {
                                     <div className='statsMonster'>
                                         <h4>Caractéristiques</h4>
 
+                                    {widthScreen > 767 ? (
+                                    <>
+                                        <ul>
+                                            <li>
+                                                <img src={"/images/icons/Vita.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueHealth}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/PA.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valuePA}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/PM.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valuePM}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/XP.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueExperience}</p>
+                                            </li>
+                                        </ul>
+
+                                        <ul>
+                                            <li>
+                                                <img src={"/images/icons/Init.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueInitiative}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/earth.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueStrength}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/fire.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueIntelligence}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/water.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueChance}</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/Air.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueAgility}</p>
+                                            </li>
+                                        </ul>
+                                    </>
+                                    ) : (
+                                    <>
                                         <ul>
                                             <li>
                                                 <img src={"/images/icons/Vita.svg"} alt="" className="icons-monsters" />
@@ -202,6 +272,10 @@ function AddMonsters({ecosystem, race}) {
                                                 <p>{inputs.valueAgility}</p>
                                             </li>
                                         </ul>
+                                    </>
+                                    )}
+
+                                        
                                     </div>
 
                                     <div className='statsMonster'>
@@ -223,8 +297,38 @@ function AddMonsters({ecosystem, race}) {
                                     <div className='statsMonster'>
                                         <h4>Résistances</h4>
 
+                                    {widthScreen > 767 ? (
+                                    <>
                                         <ul>
+                                            <li>
+                                                <img src={"/images/icons/neutral.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueResiNeutral}%</p>
+                                            </li>
 
+                                            <li>
+                                                <img src={"/images/icons/earth.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueResiEarth}%</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/fire.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueResiFire}%</p>
+                                            </li>
+                                            
+                                            <li>
+                                                <img src={"/images/icons/water.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueResiWater}%</p>
+                                            </li>
+
+                                            <li>
+                                                <img src={"/images/icons/Air.svg"} alt="" className="icons-monsters" />
+                                                <p>{inputs.valueResiWind}%</p>
+                                            </li>
+                                        </ul>
+                                    </>
+                                    ) : (
+                                    <>
+                                        <ul>
                                             <li>
                                                 <img src={"/images/icons/neutral.svg"} alt="" className="icons-monsters" />
                                                 <p>{inputs.valueResiNeutral}%</p>
@@ -252,6 +356,8 @@ function AddMonsters({ecosystem, race}) {
                                                 <p>{inputs.valueResiWind}%</p>
                                             </li>
                                         </ul>
+                                    </>
+                                    )}
                                     </div>
 
                                     <div className='statsMonster'>

@@ -4,11 +4,11 @@ import Query from '../models/Query.js';
 export const getAll = async (req, res, next) => {
     try {
         const query = "SELECT * FROM race";
-        const classes = await Query.getAllDatas(query);
+        const races = await Query.getAllDatas(query);
 
         res.status(200).json({
-            msg: "ALL race are get",
-            result: classes,
+            msg: "ALL races are get",
+            result: races,
         });
         return;
     } catch (error) {

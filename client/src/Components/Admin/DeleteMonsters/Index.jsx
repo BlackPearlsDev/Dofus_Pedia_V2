@@ -33,7 +33,7 @@ function DeleteMonster({monsters}) {
                                 <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, monster.id)}> Supprimer </button>
                             </article>
                         )
-                })}
+                    })}
             </section>
         </main>
     )

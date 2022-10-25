@@ -19,7 +19,7 @@ function NavBar() {
 
     return (
         <nav className='header-nav'>
-            {widthScreen > 1000 ? (
+            {widthScreen > 1023 ? (
                 <>
                 <Link to="/">Accueil</Link>
                 <Link to="/classes">Classes</Link>

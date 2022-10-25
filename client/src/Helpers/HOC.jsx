@@ -25,13 +25,17 @@ import { loadEcosystem } from "../store/slices/ecosystem.slice";
 import { getAllRaces } from "../services/API/race";
 import { loadRace } from "../store/slices/race.slice";
 
+/********** SPELLS **********/
+import { getAllSpells } from "../services/API/spells";
+import { loadSpells } from "../store/slices/spells.slice";
+
 function HOC({ child, isAuthRequired }) {
     const navigate = useNavigate();
 
     const [fetchError, setFetchError] = useState(false);
     
     const dispatch = useDispatch();
-    const { listUsers, userInfos, isLogged, listClasses, listMonsters, listEcosystem, listRace } = useSelector((state) => ({...state.user, ...state.users, ...state.classes, ...state.monsters, ...state.ecosystem, ...state.race}));
+    const { listUsers, userInfos, isLogged, listClasses, listMonsters, listEcosystem, listRace, listSpell } = useSelector((state) => ({...state.user, ...state.users, ...state.classes, ...state.monsters, ...state.ecosystem, ...state.race, ...state.spell}));
 
     useEffect(()=>{
         async function checkAuth(){
@@ -135,6 +139,21 @@ function HOC({ child, isAuthRequired }) {
         // eslint-disable-next-line
     }, []);
 
+    useEffect(() => {
+        if (!listSpell.length) {
+            async function fetchData() {
+                const res = await getAllSpells();
+                if (res.code) {
+                    setFetchError(true);
+                    return;
+                }
+                dispatch(loadSpells(res.data.result));
+            }
+            fetchData();
+        }
+        // eslint-disable-next-line
+    }, []);
+
     const Child = child;
 
     if (fetchError) {
@@ -146,7 +165,7 @@ function HOC({ child, isAuthRequired }) {
             {!listClasses.length ? (
                  <p className="loadingData">Chargement des données ...</p>
              ) : (
-                    <Child userInfos={userInfos} listUsers={listUsers} classes={listClasses} monsters={listMonsters} ecosystem={listEcosystem} race={listRace}/>
+                    <Child userInfos={userInfos} listUsers={listUsers} classes={listClasses} monsters={listMonsters} ecosystem={listEcosystem} race={listRace} spells={listSpell}/>
             )}
         </>
     );

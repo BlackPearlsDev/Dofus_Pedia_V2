@@ -616,10 +616,12 @@ footer a:hover {
 /* petit telephone avant 370px */
 @media screen and (max-width: 370px) {
     
+    /* MAIN ELEMENTS */
     .mainContent {
         min-height: calc(90vh - 115px);
     }
 
+    /* CLASSES PAGE */
     .txtClasseDesc {
         width: 50%;
     }
@@ -628,6 +630,7 @@ footer a:hover {
         justify-content: flex-start;
     }
 
+    /* USER DASHBOARD PAGE */s
     .userImgDashboard {
         height: 150px;
     }
@@ -636,8 +639,50 @@ footer a:hover {
 /* petit telephone avant 424px */
 @media screen and (max-width: 424px) {
     
+    /* BESTIARY PAGE */
     .statsMonster ul {
         padding: 2px;
+        margin: 0;
+        justify-content: space-evenly;
+    }
+}
+
+/* tablette apres 768px */
+@media screen and (min-width: 768px) {
+    
+    /* MAIN ELEMENTS */
+    .mainContent {
+        min-height: calc(90vh - 109px);
+    }
+
+    /* HEADER + NAV */
+    header {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .sectionNav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-nav {
+        position: static;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-radius: 0;
+        padding: 4px;
+        width: 100%;
+    }
+
+    .header-nav a {
+        border-bottom: transparent;
+    }
+
+    /* BESTIARY PAGE */
+    .statsMonster ul {
+        padding: 6px;
         margin: 0;
         justify-content: space-evenly;
     }

@@ -27,7 +27,7 @@ function Header() {
             <h1>Dofus Pedia</h1>
 
             <section className='sectionNav'>
-                {widthScreen > 1000 ? (
+                {widthScreen > 767 ? (
                     <NavBar />
                 ) : (
                     <>

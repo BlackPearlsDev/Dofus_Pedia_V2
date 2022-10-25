@@ -30,11 +30,13 @@ Faire des nouvelles tables et faire les relations entre elles:
 
 - ecosystem ✔️
 - race ✔️
-- spells
+- spells ✔️
 - zones
 - drops
 
 Comme ça quand on ajoutera un mob dans le panel admin on aura des select pour affecter les valeurs de la BDD
+
+Select des sorts ✔️
 
 /!\ Quand ce changement sera fais il faudra changer les valeurs des colonnes concernées dans la table monsters, faire passer les ID des autres
 tables (INNER JOIN) pour récupérer le 'name' ! 

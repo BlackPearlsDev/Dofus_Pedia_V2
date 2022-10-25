@@ -4,11 +4,11 @@ import Query from '../models/Query.js';
 export const getAll = async (req, res, next) => {
     try {
         const query = "SELECT * FROM monster";
-        const classes = await Query.getAllDatas(query);
+        const monster = await Query.getAllDatas(query);
 
         res.status(200).json({
             msg: "ALL monsters are get",
-            result: classes,
+            result: monster,
         });
         return;
     } catch (error) {
@@ -42,14 +42,14 @@ export const addMonster = async (req, res, next) => {
             resi_fire: valueResiFire,
             resi_water: valueResiWater,
             resi_wind: valueResiWind,
-            spells: valueSpells,
+            spells_id: valueSpells,
             drops: valueDrops,
             zones: valueZones,
             image_name: image_name,
         }
         console.log('datas', datas);
 
-        const query = `INSERT INTO monster (monster_name, ecosystem_id, race_id, level, health, action_point, movement_point, experience, init, earth, fire, water, wind, dodge_pa, dodge_pm, resi_neutral, resi_earth, resi_fire, resi_water, resi_wind, spells, zones, drops, image_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        const query = `INSERT INTO monster (monster_name, ecosystem_id, race_id, level, health, action_point, movement_point, experience, init, earth, fire, water, wind, dodge_pa, dodge_pm, resi_neutral, resi_earth, resi_fire, resi_water, resi_wind, spells_id, zones, drops, image_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         const result = await Query.save(query, datas);
 
         res.status(200).json({
@@ -78,13 +78,27 @@ export const addImg = async (req, res) => {
 // on supprime un monstre
 export const deleteMonster = async (req, res, next) => {
     try {
-        // const {id} = req.body;
         const id = req.params.id;
         const query = `DELETE FROM monster WHERE id = ?`;
         const result = await Query.getDataByValue(query, id);
 
         res.status(200).json({
             msg: "Monster deleted (-)",
+            result: result,
+        });
+        return;
+    } catch (error) {
+        return next(error);
+    }
+}
+
+export const getSpellByName = async (req, res, next) => {
+    try {
+        const query = `SELECT monster_name, spell_name FROM monster JOIN spells ON spells.id = monster.spells_id`;
+        const result = await Query.getAllDatas(query);
+
+        res.status(200).json({
+            msg: "Spell by name get !",
             result: result,
         });
         return;

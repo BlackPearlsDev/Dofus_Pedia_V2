@@ -1,14 +1,14 @@
 import Query from '../models/Query.js';
 
-// on récupere tout les ecosystèmes
+// on récupere toute les races
 export const getAll = async (req, res, next) => {
     try {
-        const query = "SELECT * FROM ecosystem";
-        const ecosystem = await Query.getAllDatas(query);
+        const query = "SELECT * FROM spells";
+        const spells = await Query.getAllDatas(query);
 
         res.status(200).json({
-            msg: "ALL ecosystem are get",
-            result: ecosystem,
+            msg: "ALL spells are get",
+            result: spells,
         });
         return;
     } catch (error) {

@@ -34,3 +34,12 @@ export const deleteMonster = async (monsterId) => {
         return error.response;
     }
 }
+
+export const getSpellByName = async (name) => {
+    try {
+        return await axios.get(`/api/v1/monsters/spell`);
+    } catch (error) {
+        console.log(error);
+        return error.response;
+    }
+}

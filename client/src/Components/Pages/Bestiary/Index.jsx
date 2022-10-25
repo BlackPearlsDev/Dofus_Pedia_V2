@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function Bestiary({ monsters }) {
+function Bestiary({ monsters, spells }) {
     // console.log('monsters', monsters); // A REMETTRE QUAND JE FERAIS LES TEST D'AJOUT ADMINS
 
     const dispatch = useDispatch();
@@ -30,47 +30,51 @@ function Bestiary({ monsters }) {
         setInfosToggle(!infosToggle);
     }
 
+    // valeur non ammenée à changer donc pas besoin de mettre dans le state
     const renderEcosystem = (ecoInfos) => { // pas nul mais vaut mieux faire un switch (a changer completement si ma requete est faite)
-        if (ecoInfos === 1) {
-            return <p>Ecosystème: Créatures des champs</p>
-        } else if (ecoInfos === 2) {
-            return <p>Ecosystème: Créatures Diverses</p>
-        } else if (ecoInfos === 3) {
-            return <p>Ecosystème: Créatures des marécages</p>
-        } else if (ecoInfos === 4) {
-            return <p>Ecosystème: Créatures des landes</p>
-        } else if (ecoInfos === 5) {
-            return <p>Ecosystème: Créatures des plages</p>
-        } else if (ecoInfos === 6) {
-            return <p>Ecosystème: Créatures de l'île des Wabbits</p>
-        } else if (ecoInfos === 7) {
-            return <p>Ecosystème: Créatures de l'île du Minotoror</p>
-        } else if (ecoInfos === 8) {
-            return <p>Ecosystème: Créatures de la zone des débutants</p>
-        } else if (ecoInfos === 9) {
-            return <p>Ecosystème: Créatures de l'île de Moon</p>
-        } else if (ecoInfos === 10) {
-            return <p>Ecosystème: Créatures des villes</p>
-        } else if (ecoInfos === 11) {
-            return <p>Ecosystème: Créatures des plaines</p>
-        } else if (ecoInfos === 12) {
-            return <p>Ecosystème: Créatures du village des éleveurs</p>
-        } else if (ecoInfos === 13) {
-            return <p>Ecosystème: Créatures de la montagne</p>
-        } else if (ecoInfos === 14) {
-            return <p>Ecosystème: Protecteurs des ressources</p>
-        } else if (ecoInfos === 15) {
-            return <p>Ecosystème: Créatures de l'île d'Otomaï</p>
-        } else if (ecoInfos === 16) {
-            return <p>Ecosystème: Créatures de Pandala</p>
-        } else if (ecoInfos === 17) {
-            return <p>Ecosystème: Créatures de la forêt</p>
-        } else if (ecoInfos === 18) {
-            return <p>Ecosystème: Créatures humanoïdes</p>
-        } else if (ecoInfos === 19) {
-            return <p>Ecosystème: Créatures Archi-monstres</p>
-        } else if (ecoInfos === 20) {
-            return <p>Ecosystème: Créatures de la nuit</p>
+        switch (ecoInfos) {
+            case 1:
+                return <p>Ecosystème: Créatures des champs</p>;
+            case 2:
+                return <p>Ecosystème: Créatures Diverses</p>;
+            case 3:
+                return <p>Ecosystème: Créatures des marécages</p>;
+            case 4:
+                return <p>Ecosystème: Créatures des landes</p>;
+            case 5:
+                return <p>Ecosystème: Créatures des plages</p>
+            case 6:
+                return <p>Ecosystème: Créatures de l'île des Wabbits</p>
+            case 7:
+                return <p>Ecosystème: Créatures de l'île du Minotoror</p>
+            case 8:
+                return <p>Ecosystème: Créatures de la zone des débutants</p>
+            case 9:
+                return <p>Ecosystème: Créatures de l'île de Moon</p>
+            case 10:
+                return <p>Ecosystème: Créatures des villes</p>
+            case 11:
+                return <p>Ecosystème: Créatures des plaines</p>
+            case 12:
+                return <p>Ecosystème: Créatures du village des éleveurs</p>
+            case 13:
+                return <p>Ecosystème: Créatures de la montagne</p>
+            case 14:
+                return <p>Ecosystème: Protecteurs des ressources</p>
+            case 15:
+                return <p>Ecosystème: Créatures de l'île d'Otomaï</p>
+            case 16:
+                return <p>Ecosystème: Créatures de Pandala</p>
+            case 17:
+                return <p>Ecosystème: Créatures de la forêt</p>
+            case 18:
+                return <p>Ecosystème: Créatures humanoïdes</p>
+            case 19:
+                return <p>Ecosystème: Créatures Archi-monstres</p>
+            case 20:
+                return <p>Ecosystème: Créatures de la nuit</p>
+            default:
+                return <p>Ecosystème: Inconnu</p>;
         }
     }
 
@@ -118,7 +122,7 @@ function Bestiary({ monsters }) {
                                 <div className='monsterContentInfos'>
                                     <div className='infosMonster'>
                                         <article className='specMonster'>
-                                            {renderEcosystem(mob.ecosystem)} {/* a refaire */}
+                                            {renderEcosystem(mob.ecosystem_id)} {/* a refaire */}
                                             <p>Race: {mob.race}</p>
                                         </article>
                                     </div>
@@ -148,35 +152,69 @@ function Bestiary({ monsters }) {
                                             </li>
                                         </ul>
 
-                                        <ul>
-                                            <li>
-                                                <img src={"images/icons/Init.svg"} alt={`Initiative du monstre ${mob.init}`} className="icons-monsters" />
-                                                <p>{mob.init}</p>
-                                            </li>
+                                        {widthScreen < 728 ? (
+                                        <>
+                                            <ul>
+                                                <li>
+                                                    <img src={"images/icons/Init.svg"} alt={`Initiative du monstre ${mob.init}`} className="icons-monsters" />
+                                                    <p>{mob.init}</p>
+                                                </li>
 
-                                            <li>
-                                                <img src={"images/icons/earth.svg"} alt={`Force du monstre ${mob.earth}`} className="icons-monsters" />
-                                                <p>{mob.earth}</p>
-                                            </li>
+                                                <li>
+                                                    <img src={"images/icons/earth.svg"} alt={`Force du monstre ${mob.earth}`} className="icons-monsters" />
+                                                    <p>{mob.earth}</p>
+                                                </li>
 
-                                            <li>
-                                                <img src={"images/icons/fire.svg"} alt={`Intelligence du monstre ${mob.fire}`} className="icons-monsters" />
-                                                <p>{mob.fire}</p>
-                                            </li>
-                                        </ul>
+                                                <li>
+                                                    <img src={"images/icons/fire.svg"} alt={`Intelligence du monstre ${mob.fire}`} className="icons-monsters" />
+                                                    <p>{mob.fire}</p>
+                                                </li>
+                                            </ul>
 
-                                        <ul>
-                                            <li>
-                                                <img src={"images/icons/water.svg"} alt={`Chance du monstre ${mob.water}`} className="icons-monsters" />
-                                                <p>{mob.water}</p>
-                                            </li>
+                                            <ul>
+                                                <li>
+                                                    <img src={"images/icons/water.svg"} alt={`Chance du monstre ${mob.water}`} className="icons-monsters" />
+                                                    <p>{mob.water}</p>
+                                                </li>
 
-                                            <li>
-                                                <img src={"images/icons/Air.svg"} alt={`Agilité du monstre ${mob.wind}`} className="icons-monsters" />
-                                                <p>{mob.wind}</p>
-                                            </li>
-                                        </ul>
+                                                <li>
+                                                    <img src={"images/icons/Air.svg"} alt={`Agilité du monstre ${mob.wind}`} className="icons-monsters" />
+                                                    <p>{mob.wind}</p>
+                                                </li>
+                                            </ul>
+                                        </>
+                                        ) : (
+                                        <>
+                                            <ul>
+                                                <li>
+                                                    <img src={"images/icons/Init.svg"} alt={`Initiative du monstre ${mob.init}`} className="icons-monsters" />
+                                                    <p>{mob.init}</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/earth.svg"} alt={`Force du monstre ${mob.earth}`} className="icons-monsters" />
+                                                    <p>{mob.earth}</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/fire.svg"} alt={`Intelligence du monstre ${mob.fire}`} className="icons-monsters" />
+                                                    <p>{mob.fire}</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/water.svg"} alt={`Chance du monstre ${mob.water}`} className="icons-monsters" />
+                                                    <p>{mob.water}</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/Air.svg"} alt={`Agilité du monstre ${mob.wind}`} className="icons-monsters" />
+                                                    <p>{mob.wind}</p>
+                                                </li>
+                                            </ul>
+                                        </>
+                                        )}
                                     </div>
+
 
                                     <div className='statsMonster'>
                                         <h4>Esquive</h4>
@@ -197,35 +235,68 @@ function Bestiary({ monsters }) {
                                     <div className='statsMonster'>
                                         <h4>Résistances</h4>
 
-                                        <ul>
+                                        {widthScreen < 728 ? (
+                                        <>
+                                            <ul>
 
-                                            <li>
-                                                <img src={"images/icons/neutral.svg"} alt={`Résistance neutre du monstre ${mob.resi_neutral}`} className="icons-monsters" />
-                                                <p>{mob.resi_neutral}%</p>
-                                            </li>
+                                                <li>
+                                                    <img src={"images/icons/neutral.svg"} alt={`Résistance neutre du monstre ${mob.resi_neutral}`} className="icons-monsters" />
+                                                    <p>{mob.resi_neutral}%</p>
+                                                </li>
 
-                                            <li>
-                                                <img src={"images/icons/earth.svg"} alt={`Résistance terre du monstre ${mob.resistance_earth}`} className="icons-monsters" />
-                                                <p>{mob.resi_earth}%</p>
-                                            </li>
+                                                <li>
+                                                    <img src={"images/icons/earth.svg"} alt={`Résistance terre du monstre ${mob.resistance_earth}`} className="icons-monsters" />
+                                                    <p>{mob.resi_earth}%</p>
+                                                </li>
 
-                                            <li>
-                                                <img src={"images/icons/fire.svg"} alt={`Résistance feu du monstre ${mob.resistance_fire}`} className="icons-monsters" />
-                                                <p>{mob.resi_fire}%</p>
-                                            </li>
-                                        </ul>
+                                                <li>
+                                                    <img src={"images/icons/fire.svg"} alt={`Résistance feu du monstre ${mob.resistance_fire}`} className="icons-monsters" />
+                                                    <p>{mob.resi_fire}%</p>
+                                                </li>
+                                            </ul>
 
-                                        <ul>
-                                            <li>
-                                                <img src={"images/icons/water.svg"} alt={`Résistance eau du monstre ${mob.resistance_water}`} className="icons-monsters" />
-                                                <p>{mob.resi_water}%</p>
-                                            </li>
+                                            <ul>
+                                                <li>
+                                                    <img src={"images/icons/water.svg"} alt={`Résistance eau du monstre ${mob.resistance_water}`} className="icons-monsters" />
+                                                    <p>{mob.resi_water}%</p>
+                                                </li>
 
-                                            <li>
-                                                <img src={"images/icons/Air.svg"} alt={`Résistance air du monstre ${mob.resistance_wind}`} className="icons-monsters" />
-                                                <p>{mob.resi_wind}%</p>
-                                            </li>
-                                        </ul>
+                                                <li>
+                                                    <img src={"images/icons/Air.svg"} alt={`Résistance air du monstre ${mob.resistance_wind}`} className="icons-monsters" />
+                                                    <p>{mob.resi_wind}%</p>
+                                                </li>
+                                            </ul>
+                                        </>
+                                        ) : (
+                                        <>
+                                            <ul>
+                                                <li>
+                                                    <img src={"images/icons/neutral.svg"} alt={`Résistance neutre du monstre ${mob.resi_neutral}`} className="icons-monsters" />
+                                                    <p>{mob.resi_neutral}%</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/earth.svg"} alt={`Résistance terre du monstre ${mob.resistance_earth}`} className="icons-monsters" />
+                                                    <p>{mob.resi_earth}%</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/fire.svg"} alt={`Résistance feu du monstre ${mob.resistance_fire}`} className="icons-monsters" />
+                                                    <p>{mob.resi_fire}%</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/water.svg"} alt={`Résistance eau du monstre ${mob.resistance_water}`} className="icons-monsters" />
+                                                    <p>{mob.resi_water}%</p>
+                                                </li>
+
+                                                <li>
+                                                    <img src={"images/icons/Air.svg"} alt={`Résistance air du monstre ${mob.resistance_wind}`} className="icons-monsters" />
+                                                    <p>{mob.resi_wind}%</p>
+                                                </li>
+                                            </ul>
+                                        </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +310,7 @@ function Bestiary({ monsters }) {
                                 </div>
 
                                 {infosToggle && (
-                                    <p>{mob.spells}</p>
+                                    <p>{mob.spells_id}</p>
                                 )}
                             </div>
 
