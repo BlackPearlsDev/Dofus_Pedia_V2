@@ -26,6 +26,11 @@ body {
     background-color: #E5CFB3;
 }
 
+.divDivider {
+    width: 60%;
+    border: 1px solid #514A3C;
+}
+
 /* HEADER + NAV */
 header {
     background: url("../assets/img/header.jpg")  no-repeat;
@@ -143,6 +148,7 @@ main {
 .zoneContent article {
     background-color: #EBDBC6;
     padding: 6px;
+    width: 100%;
 }
 
 .zoneAuthorImgName {
@@ -161,8 +167,18 @@ main {
 
 .authorName {
     background-color: #93866C;
+    width: 100%;
     color: #EBDBC6;
     text-align: center;
+}
+
+.newsCategory {
+    background-color: #93866C;
+    color: #EBDBC6;
+    text-align: center;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 /* CLASSES PAGE */
@@ -491,7 +507,7 @@ main {
     margin-bottom: 20px;
 }
 
-/* ADMIN PAGE */
+/* START ADMIN PAGE */
 .adminLinks {
     display: flex;
     justify-content: space-around;
@@ -582,6 +598,7 @@ main {
 }
 
 .btnDeleteMonster {
+    font-weight: 700;
     background-color: transparent;
     border: transparent;
     color: #514A3C;
@@ -592,6 +609,81 @@ main {
     color: #E5CFB3;
     text-decoration: underline;
 }
+
+/* NEWS ADMIN PAGE */
+.formAddNews {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.formAddNews label {
+    width: 100%;
+    margin: 4px;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border-radius: 5px;
+}
+
+.formAddNews input, .formAddNews select, .formAddNews textarea {
+    width: 100%;
+    margin: 4px;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+}
+
+.formAddNews ::placeholder {
+    color: #EBDBC6;
+    padding: 4px;
+}
+
+.formAddNews input[type="submit"] {
+    margin-top: 15px;
+    font-size: 2rem;
+    background-color: #514A3C;
+}
+
+.newsTogether {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 4px;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border-radius: 5px;
+}
+
+.newsToDelete {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 10px;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border-radius: 5px;
+}
+
+.newsToDelete > * {
+    width: 100%;
+}
+
+.btnDeleteNews {
+    margin-top: 10px;
+    font-weight: 700;
+    background-color: transparent;
+    border: transparent;
+    color: #514A3C;
+    font-size: 1.6rem;
+}
+/* FIN ADMIN PAGE */
 
 /* FOOTER */
 footer {

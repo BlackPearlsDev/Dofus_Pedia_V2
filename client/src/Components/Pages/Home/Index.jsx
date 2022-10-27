@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setToggle } from '../../../store/slices/menu.slice';
 import imgAvatar from "../../../assets/avatars/vald.png";
 
-function Home() {
+function Home({ posts }) {
+    console.log('posts', posts);
     useEffect(() => {
         document.title = "Accueil - Dofus Pedia";
     }, [])
@@ -18,23 +19,27 @@ function Home() {
             <section className='mainContent'>
                 <h2>Les News !</h2>
 
-                <section className="sectionNews">
+            {posts.map((post, index) => (
+                <section key={index} className="sectionNews">
                     <div className="zoneTitleDate">
-                        <h3>Titre</h3>
-                        <p>Date</p>
+                        <h3>{post.title}</h3>
+                        <p>{new Date (post.creation_time).toLocaleDateString()}</p>
                     </div>
 
                     <div className="zoneContent">
                         <div className="zoneAuthorImgName">
                             <img src={imgAvatar} alt="Logo de l'auteur" />
-                            <p className="authorName">Nom de l'auteur</p>
+                            <p className="authorName">{post.author}</p>
                         </div>
 
                         <article>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem assumenda suscipit quia laudantium minima dolorem magnam incidunt veniam possimus. Nesciunt!</p>
+                            <p>{post.content}</p>
                         </article>
                     </div>
+
+                    <p className="newsCategory">Catégorie: {post.category}</p>
                 </section>
+            ))}
             </section>
         </main>
     )

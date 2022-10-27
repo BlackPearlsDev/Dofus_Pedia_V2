@@ -29,13 +29,17 @@ import { loadRace } from "../store/slices/race.slice";
 import { getAllSpells } from "../services/API/spells";
 import { loadSpells } from "../store/slices/spells.slice";
 
+/********** POST **********/
+import { getAllPosts } from "../services/API/post";
+import { loadPosts } from "../store/slices/post.slice";
+
 function HOC({ child, isAuthRequired }) {
     const navigate = useNavigate();
 
     const [fetchError, setFetchError] = useState(false);
     
     const dispatch = useDispatch();
-    const { listUsers, userInfos, isLogged, listClasses, listMonsters, listEcosystem, listRace, listSpell } = useSelector((state) => ({...state.user, ...state.users, ...state.classes, ...state.monsters, ...state.ecosystem, ...state.race, ...state.spell}));
+    const { listUsers, userInfos, isLogged, listClasses, listMonsters, listEcosystem, listRace, listSpell, listPost } = useSelector((state) => ({...state.user, ...state.users, ...state.classes, ...state.monsters, ...state.ecosystem, ...state.race, ...state.spell, ...state.post}));
 
     useEffect(()=>{
         async function checkAuth(){
@@ -154,6 +158,21 @@ function HOC({ child, isAuthRequired }) {
         // eslint-disable-next-line
     }, []);
 
+    useEffect(() => {
+        if (!listPost.length) {
+            async function fetchData() {
+                const res = await getAllPosts();
+                if (res.code) {
+                    setFetchError(true);
+                    return;
+                }
+                dispatch(loadPosts(res.data.result));
+            }
+            fetchData();
+        }
+        // eslint-disable-next-line
+    }, []);
+
     const Child = child;
 
     if (fetchError) {
@@ -165,7 +184,7 @@ function HOC({ child, isAuthRequired }) {
             {!listClasses.length ? (
                  <p className="loadingData">Chargement des données ...</p>
              ) : (
-                    <Child userInfos={userInfos} listUsers={listUsers} classes={listClasses} monsters={listMonsters} ecosystem={listEcosystem} race={listRace} spells={listSpell}/>
+                    <Child userInfos={userInfos} listUsers={listUsers} classes={listClasses} monsters={listMonsters} ecosystem={listEcosystem} race={listRace} spells={listSpell} posts={listPost}/>
             )}
         </>
     );

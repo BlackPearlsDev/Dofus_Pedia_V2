@@ -7,6 +7,7 @@ import monstersReducer from './slices/monsters.slice';
 import ecosystemReducer from './slices/ecosystem.slice';
 import raceReducer from './slices/race.slice';
 import spellsReducer from './slices/spells.slice';
+import postReducer from './slices/post.slice';
 
 const store = configureStore({
     reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
         ecosystem: ecosystemReducer,
         race: raceReducer,
         spell: spellsReducer,
+        post: postReducer
         // autre reducer ..
     }
 });
