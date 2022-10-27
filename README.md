@@ -21,6 +21,8 @@ même style de fiche que celui du bestiaire. ✔️
 Ajout en cours: 
 - Ajout de monstres avec preview ✔️ (juste revoir l'image qui se montre pas)
 - Supression de monstres ✔️
+- Ajout d'une news (post) ✔️
+- Supression d'une news (post) ✔️
 
 
 ## Page Classe créer une ancre (anchor) pour aller directement aux infos de la classe cliquée
