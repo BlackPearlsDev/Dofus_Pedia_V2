@@ -24,6 +24,17 @@ Ajout en cours:
 - Ajout d'une news (post) ✔️
 - Supression d'une news (post) ✔️
 
+## Début du CSS version desktop commencé, à finir
+
+## Créer une page type "lexique" qui expliquerait les termes du jeu (ex: xp, kamas, etc.) à quelqu'un qui ne connait pas le jeu
+
+# TO CHANGE
+
+## Page d'acceuil, inverser les news avec la dernière news en haut (DESC) ✔️
+
+## Clarifier le formulaire pour ajouter un mob
+
+## Page d'acceuil changer le visage du post et mettre une image qui ne represente pas un utilisateur, ex un parchemin
 
 ## Page Classe créer une ancre (anchor) pour aller directement aux infos de la classe cliquée
 

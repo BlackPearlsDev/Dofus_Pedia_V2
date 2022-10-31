@@ -17,8 +17,8 @@ class Query {
         return result;
     }
 
-    static async remove(query, uuid){
-        const [result] = await POOL.execute(query, [uuid]);
+    static async remove(query, id){
+        const [result] = await POOL.execute(query, [id]);
         return result;
     }
 

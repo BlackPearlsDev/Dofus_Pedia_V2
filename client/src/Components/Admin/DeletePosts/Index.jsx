@@ -1,22 +1,25 @@
 import { deletePost } from '../../../services/API/post';
-import { loadPosts } from "../../../store/slices/post.slice";
 import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { loadPosts } from "../../../store/slices/post.slice";
+import { getAllPosts } from "../../../services/API/post";
 
 function DeletePosts({ posts }) {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleDelete = async (e, postId) => {
         e.preventDefault();
-        console.log("post id : ", postId);
         const res = await deletePost(postId);
         if(res.status === 404) {
 		    console.log(res.data.msg);
 		 	return;
         }
         if (res.status === 200) {
-            console.log('post deleted');
-            dispatch(loadPosts());
+            const res = await getAllPosts();
+            dispatch(loadPosts(res.data.result));
+            navigate("/admin/deletePosts");
         }
     }
 

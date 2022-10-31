@@ -32,4 +32,11 @@ export const validate = (inputs) => {
         }
         return inputsSanitized;
     }
+
+    if (window.location.pathname === "/admin/createCategories") {
+        const inputsSanitized = {
+            categoryName : inputs.categoryName.trim(),
+        }
+        return inputsSanitized;
+    }
 };

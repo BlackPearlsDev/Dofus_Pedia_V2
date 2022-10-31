@@ -1,27 +1,30 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { deleteMonster } from '../../../services/API/monsters';
-import { setToggle } from '../../../store/slices/menu.slice';
+import { loadMonsters } from '../../../store/slices/monsters.slice';
+import { getAllMonsters } from "../../../services/API/monsters";
 
 function DeleteMonster({monsters}) {
-    console.log("monsters", monsters);
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { isToggle } = useSelector((state) => ({...state.menu}));
 
     const handleDelete = async (e, monsterId) => {
         e.preventDefault();
-        console.log("monster id : ", monsterId);
         const res = await deleteMonster(monsterId);
         if(res.status === 404) {
 			console.log(res.data.msg);
 			return;
         }
+        if (res.status === 200) {
+            const res = await getAllMonsters();
+            dispatch(loadMonsters(res.data.result));
+            navigate("/admin/deleteMonsters");
+        }
     }
 
     return (
         <main>
-            <div className={isToggle ? "overlay" : undefined} onClick={() => dispatch(setToggle(!isToggle))}></div>
-
             <section className="mainContent">
                 <h2>Supprimer un monstre</h2>
 

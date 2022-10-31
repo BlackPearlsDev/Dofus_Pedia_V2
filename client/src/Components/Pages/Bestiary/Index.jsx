@@ -31,7 +31,8 @@ function Bestiary({ monsters, spells }) {
     }
 
     // valeur non ammenée à changer donc pas besoin de mettre dans le state
-    const renderEcosystem = (ecoInfos) => { // pas nul mais vaut mieux faire un switch (a changer completement si ma requete est faite)
+    const renderEcosystem = (ecoInfos) => {
+        console.log('ecoInfos', ecoInfos);
         switch (ecoInfos) {
             case 1:
                 return <p>Ecosystème: Créatures des champs</p>;

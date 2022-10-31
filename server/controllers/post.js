@@ -3,7 +3,7 @@ import Query from '../models/Query.js';
 // on récupere tout les posts
 export const getAll = async (req, res, next) => {
     try {
-        const query = "SELECT * FROM post";
+        const query = "SELECT * FROM post ORDER BY id DESC";
         const posts = await Query.getAllDatas(query);
 
         res.status(200).json({
@@ -38,9 +38,6 @@ export const create = async (req, res, next) => {
         const query = "INSERT INTO post (title, content, creation_time, author, category) VALUES (?, ?, NOW(), ?, ?)";
         const post = await Query.save(query, [req.body.title, req.body.content, req.body.author, req.body.category]);
 
-        console.log('query: ', query);
-        console.log('post: ', post);
-
         res.status(200).json({
             msg: "One post is create",
             result: post,
@@ -55,7 +52,9 @@ export const create = async (req, res, next) => {
 export const remove = async (req, res, next) => {
     try {
         const query = "DELETE FROM post WHERE id = ?";
-        const post = await Query.save(query, req.params.id);
+        const post = await Query.remove(query, req.params.id);
+
+        console.log('post supprimé', post);
 
         res.status(200).json({
             msg: "One post is delete",

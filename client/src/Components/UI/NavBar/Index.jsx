@@ -31,7 +31,7 @@ function NavBar() {
                         <>
                         <Link to={`user/${userInfos.uuid}`}>Mon compte</Link>
                         {
-                            userInfos.role_id === 2 ? (null) : <Link to="/admin">Admin</Link>
+                            userInfos.role_id === 1 ? (null) : <Link to="/admin">Admin</Link>
                         }
                         <Link to="/logout"> Déconnexion </Link>
                         </>

@@ -33,13 +33,17 @@ import { loadSpells } from "../store/slices/spells.slice";
 import { getAllPosts } from "../services/API/post";
 import { loadPosts } from "../store/slices/post.slice";
 
+/********** CATEGORY **********/
+import { getAllCategories } from "../services/API/categories";
+import { loadCategories } from "../store/slices/categories.slice";
+
 function HOC({ child, isAuthRequired }) {
     const navigate = useNavigate();
 
     const [fetchError, setFetchError] = useState(false);
     
     const dispatch = useDispatch();
-    const { listUsers, userInfos, isLogged, listClasses, listMonsters, listEcosystem, listRace, listSpell, listPost } = useSelector((state) => ({...state.user, ...state.users, ...state.classes, ...state.monsters, ...state.ecosystem, ...state.race, ...state.spell, ...state.post}));
+    const { listUsers, userInfos, isLogged, listClasses, listMonsters, listEcosystem, listRace, listSpell, listPost, listCategories } = useSelector((state) => ({...state.user, ...state.users, ...state.classes, ...state.monsters, ...state.ecosystem, ...state.race, ...state.spell, ...state.post, ...state.categories}));
 
     useEffect(()=>{
         async function checkAuth(){
@@ -111,7 +115,7 @@ function HOC({ child, isAuthRequired }) {
             fetchData();
         }
         // eslint-disable-next-line
-    }, []);
+    }, [ listMonsters ]);
 
     useEffect(() => {
         if (!listEcosystem.length) {
@@ -173,6 +177,21 @@ function HOC({ child, isAuthRequired }) {
         // eslint-disable-next-line
     }, []);
 
+    useEffect(() => {
+        if (!listCategories.length) {
+            async function fetchData() {
+                const res = await getAllCategories();
+                if (res.code) {
+                    setFetchError(true);
+                    return;
+                }
+                dispatch(loadCategories(res.data.result));
+            }
+            fetchData();
+        }
+        // eslint-disable-next-line
+    }, []);
+
     const Child = child;
 
     if (fetchError) {
@@ -184,7 +203,7 @@ function HOC({ child, isAuthRequired }) {
             {!listClasses.length ? (
                  <p className="loadingData">Chargement des données ...</p>
              ) : (
-                    <Child userInfos={userInfos} listUsers={listUsers} classes={listClasses} monsters={listMonsters} ecosystem={listEcosystem} race={listRace} spells={listSpell} posts={listPost}/>
+                    <Child userInfos={userInfos} listUsers={listUsers} classes={listClasses} monsters={listMonsters} ecosystem={listEcosystem} race={listRace} spells={listSpell} posts={listPost} categories={listCategories}/>
             )}
         </>
     );

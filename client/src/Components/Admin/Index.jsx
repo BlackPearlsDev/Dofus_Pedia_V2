@@ -22,14 +22,16 @@ function Admin() {
                 <h2>Gestion admin</h2>
 
                 <article className='adminLinks'>
+                    <h2 className='h2PanelAdmin'>Les news</h2>
                     <div className='divDivider'></div>
                     <Link to='createPosts' onClick={handleToggle}>Écrire une news</Link>
                     <Link to='deletePosts' onClick={handleToggle}>Supprimer une news</Link>
-                    <Link to='TODO' onClick={handleToggle}>Créer une catégorie news | TODO</Link>
+                    <Link to='createCategories' onClick={handleToggle}>Créer une catégorie news</Link>
+
+                    <h2 className='h2PanelAdmin'>Les monstres</h2>
                     <div className='divDivider'></div>
                     <Link to='addMonsters' onClick={handleToggle}>Ajout d'un monstre</Link>
                     <Link to='deleteMonsters' onClick={handleToggle}>Suppression d'un monstre</Link>
-                    <div className='divDivider'></div>
                 </article>
 
                 {toggleBtn && <Outlet />}

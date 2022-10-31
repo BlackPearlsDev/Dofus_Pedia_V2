@@ -8,6 +8,7 @@ import ecosystemReducer from './slices/ecosystem.slice';
 import raceReducer from './slices/race.slice';
 import spellsReducer from './slices/spells.slice';
 import postReducer from './slices/post.slice';
+import categoriesReducer from './slices/categories.slice';
 
 const store = configureStore({
     reducer: {
@@ -18,7 +19,8 @@ const store = configureStore({
         ecosystem: ecosystemReducer,
         race: raceReducer,
         spell: spellsReducer,
-        post: postReducer
+        post: postReducer,
+        categories: categoriesReducer
         // autre reducer ..
     }
 });

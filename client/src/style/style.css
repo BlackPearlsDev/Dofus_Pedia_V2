@@ -58,6 +58,7 @@ header {
     text-decoration: none;
     padding: 10px;
     border-bottom: 1px solid #E5CFB3;
+    transition: all 0.5s;
 }
 
 .sectionNav {
@@ -179,6 +180,13 @@ main {
     padding: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.noNews {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-top: 12px;
 }
 
 /* CLASSES PAGE */
@@ -508,6 +516,10 @@ main {
 }
 
 /* START ADMIN PAGE */
+.h2PanelAdmin {
+    width: 100%;
+}
+
 .adminLinks {
     display: flex;
     justify-content: space-around;
@@ -611,6 +623,7 @@ main {
 }
 
 /* NEWS ADMIN PAGE */
+/* ADMIN ADD NEWS OUTLET */
 .formAddNews {
     display: flex;
     justify-content: center;
@@ -659,6 +672,7 @@ main {
     border-radius: 5px;
 }
 
+/* ADMIN DELETE NEWS OUTLET */
 .newsToDelete {
     display: flex;
     /* justify-content: space-between; */
@@ -683,6 +697,33 @@ main {
     color: #514A3C;
     font-size: 1.6rem;
 }
+/* ADMIN ADD CATEGORIES OUTLET */
+.formAddCategories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.formAddCategories label {
+    width: 100%;
+    margin-top: 4px;
+    padding: 4px;
+    color: #514A3C;
+    border-radius: 5px;
+}
+
+.formAddCategories input {
+    width: 100%;
+    margin: 4px;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+}
+
 /* FIN ADMIN PAGE */
 
 /* FOOTER */
@@ -751,6 +792,7 @@ footer a:hover {
     header {
         flex-direction: column;
         padding: 0;
+        width: 100%;
     }
 
     .sectionNav {
@@ -777,5 +819,78 @@ footer a:hover {
         padding: 6px;
         margin: 0;
         justify-content: space-evenly;
+    }
+
+    /* ADMIN ADD CATEGORIES OUTLET */
+    .formAddCategories {
+        margin: 12px auto;
+        width: 80%;
+    }
+}
+
+/* ordinateur apres 1024px */
+@media screen and (min-width: 1024px) {
+
+    /* MAIN ELEMENTS */
+    header {
+        background-size: 100%;
+    }
+
+    .header-nav a:hover {
+        transform: scale(1.1);
+    }
+
+    .mainContent {
+        min-height: calc(90vh - 85px);
+    }    
+
+    /* HOME PAGE */
+    .sectionNews {
+        width: 45%;
+    }
+
+    .positionNewsRow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    /* CLASSES PAGE */
+    .allClassesIcons {
+        /* TODO */
+    }
+
+    .allClassesIcons > * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 15%;
+        height: 150px;
+    }
+
+    .classeOutlet {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .classeName {
+        width: 60%;
+        margin: 22px auto;
+    }
+
+    .txtClasseDesc {
+        width: 20%;
+    }
+
+    /* BESTIARY PAGE */
+    .sectionMonster {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .monsterCard {
+        width: 45%;
     }
 }

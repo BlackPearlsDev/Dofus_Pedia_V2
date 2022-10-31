@@ -30,6 +30,7 @@ import CreatePosts from "../Components/Admin/CreatePosts/Index";
 import DeletePosts from "../Components/Admin/DeletePosts/Index";
 import AddMonsters from "../Components/Admin/AddMonsters/Index";
 import DeleteMonsters from "../Components/Admin/DeleteMonsters/Index";
+import CreateCategories from "../Components/Admin/CreateCategories/Index";
 // import NotFound from "../Components/Pages/NotFound/Index";
 
 function Router() {
@@ -61,8 +62,9 @@ function Router() {
             <Route path="admin" element={ <HOC child={Admin} isAuthRequired={true} /> } >
                 <Route path="createPosts" element={ <HOC child={CreatePosts} isAuthRequired={true} /> } />
                 <Route path="deletePosts" element={ <HOC child={DeletePosts} isAuthRequired={true} /> } />
-                <Route path="addMonsters" element={ <HOC child={AddMonsters}/> } />
-                <Route path="deleteMonsters" element={ <HOC child={DeleteMonsters}/> } />
+                <Route path="addMonsters" element={ <HOC child={AddMonsters} isAuthRequired={true} /> } />
+                <Route path="deleteMonsters" element={ <HOC child={DeleteMonsters} isAuthRequired={true} /> } />
+                <Route path="createCategories" element={ <HOC child={CreateCategories} isAuthRequired={true} /> } />
             </Route>
 
             {/* <Route path="*" element={<NotFound />}/> */}
