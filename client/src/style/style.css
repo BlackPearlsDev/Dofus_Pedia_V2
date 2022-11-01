@@ -857,10 +857,6 @@ footer a:hover {
     }
 
     /* CLASSES PAGE */
-    .allClassesIcons {
-        /* TODO */
-    }
-
     .allClassesIcons > * {
         display: flex;
         align-items: center;
@@ -891,6 +887,37 @@ footer a:hover {
     }
 
     .monsterCard {
+        width: 45%;
+    }
+
+    /* USER DASHBOARD PAGE */
+    .userImgDashboard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .userImgDashboard img {
+        width: 60%;
+        height: 100px;
+    }
+
+    /* ADMIN PAGE */
+    /* ADMIN ADD MONSTER OUTLET */
+    .monsterPreview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ADMIN DELETE POSTS OUTLET */
+    .postsPosition {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .newsToDelete {
         width: 45%;
     }
 }

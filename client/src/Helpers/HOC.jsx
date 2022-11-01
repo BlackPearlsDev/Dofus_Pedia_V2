@@ -61,7 +61,6 @@ function HOC({ child, isAuthRequired }) {
                 
                 if(TOKEN !== null) {
                     const res = await checkToken(TOKEN);
-                    console.log(res);
                     if(res.status === 200){
                         dispatch(login(res.data.result));
                     }

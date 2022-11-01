@@ -24,21 +24,19 @@ function DeleteMonster({monsters}) {
     }
 
     return (
-        <main>
-            <section className="mainContent">
-                <h2>Supprimer un monstre</h2>
+        <section className="mainContent">
+            <h2>Supprimer un monstre</h2>
 
-                    {monsters.map((monster, index) => {
-                        return (
-                            <article key={index} className="listMonstersToDelete">
-                                <p>{monster.monster_name}</p>
+                {monsters.map((monster, index) => {
+                    return (
+                        <article key={index} className="listMonstersToDelete">
+                            <p>{monster.monster_name}</p>
 
-                                <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, monster.id)}> Supprimer </button>
-                            </article>
-                        )
-                    })}
-            </section>
-        </main>
+                            <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, monster.id)}> Supprimer </button>
+                        </article>
+                    )
+                })}
+        </section>
     )
 }
 

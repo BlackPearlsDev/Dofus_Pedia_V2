@@ -50,7 +50,7 @@ function Home({ posts }) {
                             </article>
                         </div>
 
-                        <p className="newsCategory">Catégorie: {post.category}</p>
+                        <p className="newsCategory">Catégorie: {post.category !=="" ? post.category : "Autres"}</p>
                     </section>
                 ))}
             </div>

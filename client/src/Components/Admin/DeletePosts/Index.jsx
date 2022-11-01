@@ -24,10 +24,10 @@ function DeletePosts({ posts }) {
     }
 
     return (
-        <main>
-            <section className="mainContent">
-                <h2>Supprimer une news</h2>
-                
+        <section className="mainContent">
+            <h2>Supprimer une news</h2>
+            
+            <div className='postsPosition'>
                 {posts.map((post, index) => (
                     <article key={index} className="newsToDelete">
                         <h3>{post.title}</h3>
@@ -38,8 +38,8 @@ function DeletePosts({ posts }) {
                         <button className='btnDeleteNews' onClick={(e) => handleDelete(e, post.id)}> Supprimer </button>
                     </article>
                 ))}
-            </section>
-        </main>
+            </div>
+        </section>
     )
 }
 

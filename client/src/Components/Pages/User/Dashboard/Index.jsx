@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setToggle } from '../../../../store/slices/menu.slice';
 
 function Dashboard({userInfos}) {
-    console.log('userInfos:', userInfos);
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));

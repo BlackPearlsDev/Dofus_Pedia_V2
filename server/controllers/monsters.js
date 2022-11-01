@@ -3,7 +3,8 @@ import Query from '../models/Query.js';
 // on récupere tout les monstres
 export const getAll = async (req, res, next) => {
     try {
-        const query = "SELECT * FROM monster";
+        // const query = "SELECT * FROM monster";
+        const query = "SELECT *, race_name, spell_name FROM monster JOIN race ON race.id = monster.race_id JOIN spells ON spells.id = monster.spells_id";
         const monster = await Query.getAllDatas(query);
 
         res.status(200).json({

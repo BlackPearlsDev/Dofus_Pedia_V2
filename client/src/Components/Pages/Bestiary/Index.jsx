@@ -4,16 +4,23 @@ import { setToggle } from '../../../store/slices/menu.slice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { getAllMonsters } from '../../../services/API/monsters';
+import { loadMonsters } from '../../../store/slices/monsters.slice';
 
-function Bestiary({ monsters, spells }) {
-    // console.log('monsters', monsters); // A REMETTRE QUAND JE FERAIS LES TEST D'AJOUT ADMINS
+function Bestiary({ monsters }) {
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));
 
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
+    const refreshBestiary = async () => {
+        const res = await getAllMonsters();
+        dispatch(loadMonsters(res.data.result));
+    }
+
     useEffect(() => {
+        refreshBestiary();
         const handleResize = () => setWidthScreen(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => {
@@ -30,9 +37,8 @@ function Bestiary({ monsters, spells }) {
         setInfosToggle(!infosToggle);
     }
 
-    // valeur non ammenée à changer donc pas besoin de mettre dans le state
+    // valeur non ammenée à changer donc pas besoin de mettre dans un state
     const renderEcosystem = (ecoInfos) => {
-        console.log('ecoInfos', ecoInfos);
         switch (ecoInfos) {
             case 1:
                 return <p>Ecosystème: Créatures des champs</p>;
@@ -87,8 +93,8 @@ function Bestiary({ monsters, spells }) {
                 <h2>Le Bestiaire !</h2>
 
                 <section className='sectionMonster'>
-                    {monsters.map((mob) => (
-                        <article key={mob.id} className="monsterCard">
+                    {monsters.map((mob, index) => (
+                        <article key={index} className="monsterCard">
                             <div className='monsterHeadInfos'>
                                 <h3>{mob.monster_name}</h3>
                                 <p className='monsterLevel'>Niv.{mob.level}</p>
@@ -124,7 +130,7 @@ function Bestiary({ monsters, spells }) {
                                     <div className='infosMonster'>
                                         <article className='specMonster'>
                                             {renderEcosystem(mob.ecosystem_id)} {/* a refaire */}
-                                            <p>Race: {mob.race}</p>
+                                            <p>Race: {mob.race_name}</p>
                                         </article>
                                     </div>
 
@@ -311,7 +317,7 @@ function Bestiary({ monsters, spells }) {
                                 </div>
 
                                 {infosToggle && (
-                                    <p>{mob.spells_id}</p>
+                                    <p>{mob.spell_name} #{mob.spells_id}</p>
                                 )}
                             </div>
 

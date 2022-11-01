@@ -33,33 +33,31 @@ function CreatePosts({ categories }) {
     }, []);
 
     return (
-        <main>
-            <section className="mainContent">
-                <h2>Écrire une news</h2>
+        <section className="mainContent">
+            <h2>Écrire une news</h2>
 
-                <form onSubmit={handleSubmit} className="formAddNews">
-                    <div className='newsTogether'>
-                        <label htmlFor="title">Titre</label>
-                        <input type="text" name="title" id="title" onChange={(e) => setInputs({...inputs, title: e.target.value})} required/>
-                    </div>
+            <form onSubmit={handleSubmit} className="formAddNews">
+                <div className='newsTogether'>
+                    <label htmlFor="title">Titre</label>
+                    <input type="text" name="title" id="title" onChange={(e) => setInputs({...inputs, title: e.target.value})} required/>
+                </div>
 
-                    <div className='newsTogether'>
-                        <label htmlFor="category">Catégorie</label>
-                        <select name="categoryName" id="categoryName" onChange={(e) => setInputs({...inputs, category: e.target.value})} required>
-                            {categories.map((category, index) => (
-                                <option key={index} value={category.category_name}>{category.category_name}</option>
-                            ))}
-                        </select>
-                    </div>
+                <div className='newsTogether'>
+                    <label htmlFor="category">Catégorie</label>
+                    <select name="categoryName" id="categoryName" onChange={(e) => setInputs({...inputs, category: e.target.value})} required>
+                        {categories.map((category, index) => (
+                            <option key={index} value={category.category_name}>{category.category_name}</option>
+                        ))}
+                    </select>
+                </div>
 
-                    <textarea name="content" id="content" cols="30" rows="10" placeholder='Informations...' onChange={(e) => setInputs({...inputs, content: e.target.value})} required></textarea>
+                <textarea name="content" id="content" cols="30" rows="10" placeholder='Informations...' onChange={(e) => setInputs({...inputs, content: e.target.value})} required></textarea>
 
-                    <input type="text" name='author' id='author' placeholder='Auteur' onChange={(e) => setInputs({...inputs, author: e.target.value})} required/>
+                <input type="text" name='author' id='author' placeholder='Auteur' onChange={(e) => setInputs({...inputs, author: e.target.value})} required/>
 
-                    <input type="submit" value="Valider"/>
-                </form>
-            </section>
-        </main>
+                <input type="submit" value="Valider"/>
+            </form>
+        </section>
     )
 }
 

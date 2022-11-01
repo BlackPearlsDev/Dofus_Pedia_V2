@@ -18,18 +18,16 @@ function CreateCategories() {
     }
 
     return (
-        <main>
-            <section className="mainContent">
-                <h2>Créer une catégorie</h2>
+        <section className="mainContent">
+            <h2>Créer une catégorie</h2>
 
-                <form onSubmit={handeSubmit} className='formAddCategories'>
-                    <label htmlFor="categoryName">Nom de la catégorie</label>
-                    <input type="text" name="categoryName" id="categoryName" onChange={(e) => setInputs({...inputs, categoryName: e.target.value})}/>
+            <form onSubmit={handeSubmit} className='formAddCategories'>
+                <label htmlFor="categoryName">Nom de la catégorie</label>
+                <input type="text" name="categoryName" id="categoryName" onChange={(e) => setInputs({...inputs, categoryName: e.target.value})}/>
 
-                    <input type="submit" value="Valider"/>
-                </form>
-            </section>
-        </main>
+                <input type="submit" value="Valider"/>
+            </form>
+        </section>
     )
 }
 

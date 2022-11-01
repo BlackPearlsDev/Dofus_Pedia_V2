@@ -18,45 +18,17 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 - Pour le panel d'ajout de mob ajouter a droite (exemple) une preview de ce que l'admin saisie (ex: nom, image, description, etc.) avec le 
 même style de fiche que celui du bestiaire. ✔️
 
-Ajout en cours: 
-- Ajout de monstres avec preview ✔️ (juste revoir l'image qui se montre pas)
-- Supression de monstres ✔️
-- Ajout d'une news (post) ✔️
-- Supression d'une news (post) ✔️
-
-## Début du CSS version desktop commencé, à finir
+## Début du CSS version desktop commencé, à finir (en cours ♾️)
 
 ## Créer une page type "lexique" qui expliquerait les termes du jeu (ex: xp, kamas, etc.) à quelqu'un qui ne connait pas le jeu
 
 # TO CHANGE
-
-## Page d'acceuil, inverser les news avec la dernière news en haut (DESC) ✔️
 
 ## Clarifier le formulaire pour ajouter un mob
 
 ## Page d'acceuil changer le visage du post et mettre une image qui ne represente pas un utilisateur, ex un parchemin
 
 ## Page Classe créer une ancre (anchor) pour aller directement aux infos de la classe cliquée
-
-## BDD
-Faire des nouvelles tables et faire les relations entre elles:
-
-- ecosystem ✔️
-- race ✔️
-- spells ✔️
-- zones
-- drops
-
-Comme ça quand on ajoutera un mob dans le panel admin on aura des select pour affecter les valeurs de la BDD
-
-Select des sorts ✔️
-
-/!\ Quand ce changement sera fais il faudra changer les valeurs des colonnes concernées dans la table monsters, faire passer les ID des autres
-tables (INNER JOIN) pour récupérer le 'name' ! 
-
-Exemple: Dans la table monsters, colonne spells: 'Frappe, Larvement' donnera '1, 2', ici 1 = Frappe et 2 = Larvement par exemple.
-
-Pareil pour les autres colonnes. (ecosystem, race, zones, drops)
 
 # DONE ✔️
 
