@@ -58,8 +58,8 @@ function Router() {
             <Route path="login" element={ <HOC child={Login}/> } />
             <Route path="register" element={ <HOC child={Register}/> } />
             <Route path="user/:uuid" element={<HOC child={Dashboard} isAuthRequired={true} />} />
-            <Route path="logout" element={ <HOC child={Logout}/> } />
-            <Route path="admin" element={ <HOC child={Admin} isAuthRequired={true} /> } >
+            <Route path="logout" element={ <HOC child={Logout} isAuthRequired={true} /> } />
+            <Route path="admin" element={ <HOC child={Admin} isAuthRequired={true} isAdminRequired={true} /> } >
                 <Route path="createPosts" element={ <HOC child={CreatePosts} isAuthRequired={true} /> } />
                 <Route path="deletePosts" element={ <HOC child={DeletePosts} isAuthRequired={true} /> } />
                 <Route path="addMonsters" element={ <HOC child={AddMonsters} isAuthRequired={true} /> } />

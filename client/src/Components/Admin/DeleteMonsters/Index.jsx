@@ -32,7 +32,7 @@ function DeleteMonster({monsters}) {
                         <article key={index} className="listMonstersToDelete">
                             <p>{monster.monster_name}</p>
 
-                            <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, monster.id)}> Supprimer </button>
+                            <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, (index + 1))}> Supprimer </button>
                         </article>
                     )
                 })}

@@ -49,7 +49,7 @@ function Register() {
                 </form>
 
                 {empty && <p className='txtErrorEntry'>Veuillez remplir tous les champs</p>}
-                <p>Déjà un compte ? <Link to="/login">Connectez-vous</Link></p>
+                <p className='notYetRegistered'>Déjà un compte ? <Link to="/login">Connectez-vous</Link></p>
             </section>
         </main>
     )

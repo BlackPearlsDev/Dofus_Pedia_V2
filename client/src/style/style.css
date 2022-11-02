@@ -426,6 +426,36 @@ main {
     font-weight: 400;
 }
 
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    width: 40px;
+    height: 40px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 20px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: #eee;
+    border-color: #eee;
+    border: 1px solid #514A3C;
+}
+
+.pagination button.active {
+    font-weight: 900;
+    border-color: #514A3C;
+    background: #93866C;
+    color: #E5CFB3;
+}
+
 /* MAP PAGE */
 .mapFrame {
     width: 100%;
@@ -847,6 +877,7 @@ footer a:hover {
     /* HOME PAGE */
     .sectionNews {
         width: 45%;
+        margin-top: 8px;
     }
 
     .positionNewsRow {
@@ -854,6 +885,7 @@ footer a:hover {
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
+        margin-top: 34px;
     }
 
     /* CLASSES PAGE */
@@ -920,4 +952,24 @@ footer a:hover {
     .newsToDelete {
         width: 45%;
     }
+
+    /* USER ENTRY PAGE */
+    .formUserEntry {
+        width: 50%;
+        margin: 10px auto;
+    }
+
+    .notYetRegistered {
+        text-align: center;
+    }
+}
+
+/* ordinateur apres 1440px */
+@media screen and (min-width: 1440px) {
+
+    /* USER ENTRY PAGE */
+    .formUserEntry {
+        width: 40%;
+    }
+
 }

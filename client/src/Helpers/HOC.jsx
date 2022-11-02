@@ -37,7 +37,7 @@ import { loadPosts } from "../store/slices/post.slice";
 import { getAllCategories } from "../services/API/categories";
 import { loadCategories } from "../store/slices/categories.slice";
 
-function HOC({ child, isAuthRequired }) {
+function HOC({ child, isAuthRequired, isAdminRequired }) {
     const navigate = useNavigate();
 
     const [fetchError, setFetchError] = useState(false);
@@ -70,6 +70,14 @@ function HOC({ child, isAuthRequired }) {
         checkAuth();
         // eslint-disable-next-line
     }, [child]);
+
+    // block access to admin page if user is not admin
+    useEffect(() => {
+        if(isAdminRequired && userInfos?.role_id !== 2) {
+            navigate("/");
+        }
+        // eslint-disable-next-line
+    }, []);
 
     useEffect(() => {
         if (!listUsers.length) {

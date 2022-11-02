@@ -48,7 +48,7 @@ function Login() {
                 </form>
 
                 {isEmpty && <p className='txtErrorEntry'>Veuillez remplir tous les champs</p>}
-                <p>Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link></p>
+                <p className='notYetRegistered'>Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link></p>
             </section>
         </main>
     )
