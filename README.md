@@ -13,7 +13,8 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 
 ## Finir le bestiaire
 - Essayer de faire deplier une seule section et pas toutes en même temps ❌
-- Une barre de recherche + filtres (ex: type de monstre, niveau, etc.) ❌
+- Une barre de recherche ✔️
+- Filtres (ex: type de monstre, niveau, etc.) (en cours ♾️)
 - Faire un systeme de pagination ✔️
 
 ## Créer une page type "lexique" qui expliquerait les termes du jeu (ex: xp, kamas, etc.) à quelqu'un qui ne connait pas le jeu

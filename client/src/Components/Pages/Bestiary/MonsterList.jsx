@@ -6,13 +6,11 @@ import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 function MonstersList({ monsters }) {
-    console.log('monsters', monsters);
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));
 
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
-
     useEffect(() => {
         const handleResize = () => setWidthScreen(window.innerWidth);
         window.addEventListener('resize', handleResize);
@@ -75,13 +73,54 @@ function MonstersList({ monsters }) {
         }
     }
 
+    const [searchInputs, setSearchInputs] = useState('');
+
+    const handleSearch = (e) => {
+        let lowerCaseSearch = e.target.value.toLowerCase();
+        setSearchInputs(lowerCaseSearch);
+        // on filtre les monstres en fonction de la recherche
+        const filteredMonsters = monsters.filter((monster) => {
+            return monster.monster_name.toLowerCase().includes(lowerCaseSearch);
+        });
+    }
+
+    const filteredData = monsters.filter((monster) => {
+        return monster.monster_name.toLowerCase().includes(searchInputs);
+    });
+
+    const handleOrder = (e) => { // TODO: A FINIR
+        console.log('e.target.value', e.target.value);
+        if (e.target.value === 'asc') {
+            filteredData.sort((a, b) => {
+                console.log('TRIAGE PAR ASC : ', "a.level: " + a.level, "b.level: " + b.level);
+                return a.level === b.level ? 0 : a.level < b.level ? -1 : 1;
+            });
+        } else if (e.target.value === 'desc') {
+            filteredData.sort((a, b) => {
+                console.log('TRIAGE PAR DESC : ', "a.level: " + a.level, "b.level: " + b.level);
+                return a.level === b.level ? 0 : a.level < b.level ? 1 : -1;
+            });
+        }
+    }
+
     return (
         <main>
             <div className={isToggle ? "overlay" : undefined} onClick={() => dispatch(setToggle(!isToggle))}></div>
             
             <section className="mainContent">
+            <div className='bestiarySearchBox'>
+                <input type="searchBar" id='searchBar' placeholder="Rechercher un monstre" onChange={(e) => handleSearch(e)}/>
+                <p className='monstersFound'>{filteredData.length} monstres trouvés.</p>
+                <div className='filtersMonsters'>
+                    <label htmlFor="monster-level">Trier par niveau</label>
+                    <select name="level" id="monster-level" onChange={(e) => handleOrder(e)}>
+                        <option value="asc">Croissant</option>
+                        <option value="desc">Décroissant</option>
+                    </select>
+                </div>
+            </div>
                 <section className='sectionMonster'>
-                    {monsters.map((mob, index) => (
+                    {filteredData.map((mob, index) => (
                         <article key={index} className="monsterCard">
                             <div className='monsterHeadInfos'>
                                 <h3>{mob.monster_name}</h3>

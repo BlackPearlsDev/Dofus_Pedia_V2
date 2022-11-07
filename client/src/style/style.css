@@ -34,7 +34,6 @@ body {
 /* HEADER + NAV */
 header {
     background: url("../assets/img/header.jpg")  no-repeat;
-    /* background-size: 100%; A METTRE DANS LES MEDIA QUERIES POUR ORDI */
     padding: 8px;
     display: flex;
     justify-content: space-between;
@@ -157,10 +156,11 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(81,74,60,.25)
 }
 
 .zoneAuthorImgName img {
-    background-color: rgba(81,74,60,.25);
+    background-color: rgba(81,74,60,.0);
     width: 100px;
     padding: 5px;
 }
@@ -309,6 +309,44 @@ main {
     border: 1px solid black;
 } */
 
+.bestiarySearchBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 16px;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #514A3C;
+    background-color: #514A3C;
+    color: #E5CFB3;
+}
+
+.filtersMonsters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+}
+
+#monster-level {
+    background-color: #514A3C;
+    color: #E5CFB3;
+    border: 1px solid #514A3C;
+    border-radius: 5px;
+}
+
+.monstersFound {
+    text-align: center;
+    margin-top: 10px;
+    color: green;
+}
+
 .monsterCard {
     margin: 20px 0 20px 0;
     background-color: #EBDBC6;
@@ -430,7 +468,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 10px;
 }
 
 .pagination button {
@@ -912,10 +950,46 @@ footer a:hover {
     }
 
     /* BESTIARY PAGE */
+    .bestiarySearchBox {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    #searchBar {
+        width: 60%;
+        margin-left: 24px;
+    }
+
+    .bestiarySearchBox {
+        flex-wrap: wrap;
+    }
+
+    .filtersMonsters {
+        justify-content: flex-start;
+    }
+
+    .filtersMonsters label {
+        margin-left: 24px;
+    }
+
+    .filtersMonsters select {
+        margin-left: 12px;
+    }
+
     .sectionMonster {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+    }
+
+    .monstersFound {
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    .monsterContent {
+        display: block;
+        text-align: center;
     }
 
     .monsterCard {
@@ -972,4 +1046,25 @@ footer a:hover {
         width: 40%;
     }
 
+    /* BESTIARY PAGE */
+    .filtersMonsters {
+        width: 100%;
+    }
+
+    #searchBar {
+        width: 55%;
+        margin-left: 30px;
+    }
+
+    .filtersMonsters label {
+        margin-left: 30px;
+    }
+
+    .monsterContent {
+        display: flex;
+    }
+
+    .monstersFound {
+        margin-right: 30px;
+    }
 }

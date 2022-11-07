@@ -16,7 +16,7 @@ function Bestiary({ monsters }) {
     const [bestiaryData, setBestiaryData] = useState(monsters);
     const [currentPage, setCurrentPage] = useState(1);
     // eslint-disable-next-line
-    const [postsPerPage, setPostsPerPage] = useState(4);
+    const [postsPerPage, setPostsPerPage] = useState(20);
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex - postsPerPage;
     const currentPosts = bestiaryData.slice(firstPostIndex, lastPostIndex);
