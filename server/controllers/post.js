@@ -54,8 +54,6 @@ export const remove = async (req, res, next) => {
         const query = "DELETE FROM post WHERE id = ?";
         const post = await Query.remove(query, req.params.id);
 
-        console.log('post supprimé', post);
-
         res.status(200).json({
             msg: "One post is delete",
             result: post,

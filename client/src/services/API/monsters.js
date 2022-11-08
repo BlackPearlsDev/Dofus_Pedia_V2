@@ -4,7 +4,6 @@ export const getAllMonsters = async () => {
     try {
         return await axios.get("/api/v1/monsters/all");
     } catch (error) {
-        console.log(error);
         return error.response;
     }
 }
@@ -13,7 +12,6 @@ export const addMonster = async (monster) => {
     try {
         return await axios.post("/api/v1/monsters/add", monster);
     } catch (error) {
-        console.log(error);
         return error.response;
     }
 }
@@ -30,7 +28,6 @@ export const deleteMonster = async (monsterId) => {
     try {
         return await axios.delete(`/api/v1/monsters/delete/${monsterId}`);
     } catch (error) {
-        console.log(error);
         return error.response;
     }
 }
@@ -39,7 +36,6 @@ export const getSpellByName = async (name) => {
     try {
         return await axios.get(`/api/v1/monsters/spell`);
     } catch (error) {
-        console.log(error);
         return error.response;
     }
 }

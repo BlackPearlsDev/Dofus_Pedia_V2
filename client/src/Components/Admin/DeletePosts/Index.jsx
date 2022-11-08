@@ -12,10 +12,6 @@ function DeletePosts({ posts }) {
     const handleDelete = async (e, postId) => {
         e.preventDefault();
         const res = await deletePost(postId);
-        if(res.status === 404) {
-		    console.log(res.data.msg);
-		 	return;
-        }
         if (res.status === 200) {
             const res = await getAllPosts();
             dispatch(loadPosts(res.data.result));

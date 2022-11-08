@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { setToggle } from '../../../store/slices/menu.slice';
-import imgAvatar from "../../../assets/avatars/vald.png";
+import imgAvatar from "../../../assets/avatars/parchemin.png";
 
 import { getAllPosts } from "../../../services/API/post";
 import { loadPosts } from '../../../store/slices/post.slice';

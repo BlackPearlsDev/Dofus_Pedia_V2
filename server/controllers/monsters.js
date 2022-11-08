@@ -48,7 +48,6 @@ export const addMonster = async (req, res, next) => {
             zones: valueZones,
             image_name: image_name,
         }
-        console.log('datas', datas);
 
         const query = `INSERT INTO monster (monster_name, ecosystem_id, race_id, level, health, action_point, movement_point, experience, init, earth, fire, water, wind, dodge_pa, dodge_pm, resi_neutral, resi_earth, resi_fire, resi_water, resi_wind, spells_id, zones, drops, image_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         const result = await Query.save(query, datas);

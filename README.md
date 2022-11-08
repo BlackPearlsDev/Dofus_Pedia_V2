@@ -7,23 +7,13 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 - dans le router path="/classes/:name" (name = nom de la classe)
 - dans le composant, faire un fetch sur l'API pour récupérer les infos de la classe
 
-## Degager les alts des imgs de classes (icones)
-
-## Page Classe créer une ancre (anchor) pour aller directement aux infos de la classe cliquée
-
 ## Finir le bestiaire
 - Essayer de faire deplier une seule section et pas toutes en même temps ❌
-- Une barre de recherche ✔️
-- Filtres (ex: type de monstre, niveau, etc.) (en cours ♾️)
-- Faire un systeme de pagination ✔️
 
 ## Créer une page type "lexique" qui expliquerait les termes du jeu (ex: xp, kamas, etc.) à quelqu'un qui ne connait pas le jeu
 
 # TO CHANGE
 ## Clarifier le formulaire pour ajouter un mob
-
-## Page d'acceuil changer le visage du post et mettre une image qui ne represente pas un utilisateur, ex un parchemin
-
 
 # DONE ✔️
 ## Page Classes avec toutes les classes Outlets + Responsive spécial pour les écrans inférieur à 370px ✔️
@@ -35,6 +25,7 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 ## Page de déconnexion ✔️
 ## Page de profil (en cours ♾️)
 ## Page de gestion admin ✔️
+## Page bestiaire avec option de recherche, filtres et pagination ✔️
 ## CSS version desktop ✔️
 
 Ce projet est réalisé dans le cadre de ma formation de développeur web full stack. Il s'agit de mon projet final.

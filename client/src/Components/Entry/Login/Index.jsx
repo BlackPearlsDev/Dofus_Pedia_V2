@@ -18,11 +18,6 @@ function Login() {
         e.preventDefault();
 		const inputsSanitized = validate(inputs);
 		const res = await login(inputsSanitized);
-		console.log('res data:', res);
-		if(res.status === 404) {
-			console.log(res.data.msg);
-			return;
-		}
         if (inputs.pseudo === "" || inputs.password === "") {
             setIsEmpty(true);
             return;

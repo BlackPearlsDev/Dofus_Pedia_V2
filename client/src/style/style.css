@@ -328,13 +328,18 @@ main {
 
 .filtersMonsters {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin-top: 12px;
 }
 
-#monster-level {
+.filtersMonsters label, .filtersMonsters select {
+    margin: 5px;
+}
+
+#monster-name, #monster-level {
     background-color: #514A3C;
     color: #E5CFB3;
     border: 1px solid #514A3C;
@@ -791,8 +796,46 @@ main {
     border: 1px solid #514A3C;
     border-radius: 5px;
 }
-
 /* FIN ADMIN PAGE */
+
+/* PAGE 404 */
+.article404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.article404 img {
+    width: 100%;
+}
+
+.article404 h3 {
+    margin-top: 20px;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(227, 35, 35);
+}
+
+.article404 h4 {
+    margin-top: 20px;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.article404 a {
+    margin-top: 20px;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #E5CFB3;
+    background-color: #514A3C;
+    padding: 5px;
+    border-radius: 5px;
+}
 
 /* FOOTER */
 footer {
@@ -883,6 +926,11 @@ footer a:hover {
     }
 
     /* BESTIARY PAGE */
+    .filtersMonsters {
+        flex-direction: row;
+    }
+
+
     .statsMonster ul {
         padding: 6px;
         margin: 0;
@@ -905,7 +953,7 @@ footer a:hover {
     }
 
     .header-nav a:hover {
-        transform: scale(1.1);
+        transform: scale(1.3);
     }
 
     .mainContent {
@@ -933,6 +981,15 @@ footer a:hover {
         justify-content: center;
         width: 15%;
         height: 150px;
+    }
+
+    .allClassesIcons a {
+        transition: all 0.3s;
+    }
+
+    .allClassesIcons a:hover {
+        transform: scale(1.05);
+        background-color: #93866C;
     }
 
     .classeOutlet {
@@ -1036,6 +1093,11 @@ footer a:hover {
     .notYetRegistered {
         text-align: center;
     }
+
+    /* PAGE 404 */
+    .article404 img {
+        width: 60%;
+    }
 }
 
 /* ordinateur apres 1440px */
@@ -1066,5 +1128,14 @@ footer a:hover {
 
     .monstersFound {
         margin-right: 30px;
+    }
+
+    /* PAGE 404 */
+    .article404 {
+        margin: 0;
+    }
+
+    .article404 img {
+        width: 40%;
     }
 }

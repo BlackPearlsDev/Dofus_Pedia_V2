@@ -31,7 +31,7 @@ import DeletePosts from "../Components/Admin/DeletePosts/Index";
 import AddMonsters from "../Components/Admin/AddMonsters/Index";
 import DeleteMonsters from "../Components/Admin/DeleteMonsters/Index";
 import CreateCategories from "../Components/Admin/CreateCategories/Index";
-// import NotFound from "../Components/Pages/NotFound/Index";
+import NotFound from "../Components/Pages/NotFound/Index";
 
 function Router() {
     return (
@@ -67,7 +67,7 @@ function Router() {
                 <Route path="createCategories" element={ <HOC child={CreateCategories} isAuthRequired={true} /> } />
             </Route>
 
-            {/* <Route path="*" element={<NotFound />}/> */}
+            <Route path="*" element={<NotFound />}/>
         </Routes>
     );
 }

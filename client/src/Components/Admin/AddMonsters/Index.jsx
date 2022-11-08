@@ -41,16 +41,12 @@ function AddMonsters({ecosystem, race, spells}) {
                 }
                 const res2 = await addMonster(datas);
                 if (res2.status === 200) {
-                    console.log('monster added with image');
                     navigate(`/admin`);
                 }
-            } else {
-                console.log('error');
             }
         } else {
             const res = await addMonster(inputs);
             if (res.status === 200) {
-                console.log('monster added');
                 navigate(`/admin`);
             }
         }

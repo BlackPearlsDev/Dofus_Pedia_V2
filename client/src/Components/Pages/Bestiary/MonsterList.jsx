@@ -74,12 +74,11 @@ function MonstersList({ monsters }) {
     }
 
     const [searchInputs, setSearchInputs] = useState('');
-
     const handleSearch = (e) => {
         let lowerCaseSearch = e.target.value.toLowerCase();
         setSearchInputs(lowerCaseSearch);
         // on filtre les monstres en fonction de la recherche
-        const filteredMonsters = monsters.filter((monster) => {
+        monsters.filter((monster) => {
             return monster.monster_name.toLowerCase().includes(lowerCaseSearch);
         });
     }
@@ -88,19 +87,30 @@ function MonstersList({ monsters }) {
         return monster.monster_name.toLowerCase().includes(searchInputs);
     });
 
-    const handleOrder = (e) => { // TODO: A FINIR
-        console.log('e.target.value', e.target.value);
-        if (e.target.value === 'asc') {
-            filteredData.sort((a, b) => {
-                console.log('TRIAGE PAR ASC : ', "a.level: " + a.level, "b.level: " + b.level);
-                return a.level === b.level ? 0 : a.level < b.level ? -1 : 1;
-            });
-        } else if (e.target.value === 'desc') {
-            filteredData.sort((a, b) => {
-                console.log('TRIAGE PAR DESC : ', "a.level: " + a.level, "b.level: " + b.level);
-                return a.level === b.level ? 0 : a.level < b.level ? 1 : -1;
-            });
-        }
+    // eslint-disable-next-line
+    const [sort, setSort] = useState('');
+    const handleOrderbyName = (e) => {
+        setSort(e.target.value);
+        // eslint-disable-next-line
+        monsters.sort((a, b) => {
+            if (e.target.value === 'asc') {
+                return a.monster_name.localeCompare(b.monster_name);
+            } else if (e.target.value === 'desc') {
+                return b.monster_name.localeCompare(a.monster_name);
+            }
+        });
+    }
+
+    const handleOrderbyLevel = (e) => {
+        setSort(e.target.value);
+        // eslint-disable-next-line
+        monsters.sort((a, b) => {    
+            if (e.target.value === 'asc') {
+                return a.level - b.level;
+            } else if (e.target.value === 'desc') {
+                return b.level - a.level;
+            }
+        });
     }
 
     return (
@@ -112,8 +122,14 @@ function MonstersList({ monsters }) {
                 <input type="searchBar" id='searchBar' placeholder="Rechercher un monstre" onChange={(e) => handleSearch(e)}/>
                 <p className='monstersFound'>{filteredData.length} monstres trouvés.</p>
                 <div className='filtersMonsters'>
+                    <label htmlFor="monster-name">Trier par nom</label>
+                    <select name="name" id="monster-name" onChange={(e) => handleOrderbyName(e)}>
+                        <option value="asc">A ↓</option>
+                        <option value="desc">Z ↑</option>
+                    </select>
+
                     <label htmlFor="monster-level">Trier par niveau</label>
-                    <select name="level" id="monster-level" onChange={(e) => handleOrder(e)}>
+                    <select name="level" id="monster-level" onChange={(e) => handleOrderbyLevel(e)}>
                         <option value="asc">Croissant</option>
                         <option value="desc">Décroissant</option>
                     </select>
@@ -127,7 +143,7 @@ function MonstersList({ monsters }) {
                                 <p className='monsterLevel'>Niv.{mob.level}</p>
                             </div>
 
-                            {widthScreen < 425 ? (
+                            {widthScreen < 728 ? (
                                 <>
                                 <div className='imgMonsterLittle'>
                                     <img src={mob.image_name != null ? `images/monsters/${mob.image_name}` : `images/monsters/gfxNotFound.svg`} alt={`icone du monstre ${mob.monster_name}`} />
@@ -140,7 +156,7 @@ function MonstersList({ monsters }) {
                             )}
 
                             <div className='monsterContent'>
-                                {widthScreen > 424 ? (
+                                {widthScreen > 728 ? (
                                     <>
                                     
                                     <div className='imgMonster'>
