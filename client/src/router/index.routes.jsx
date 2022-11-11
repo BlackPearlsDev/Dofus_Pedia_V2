@@ -24,6 +24,8 @@ import Login from "../Components/Entry/Login/Index";
 import Register from "../Components/Entry/Register/Index";
 import Dashboard from "../Components/Pages/User/Dashboard/Index";
 import Logout from "../Components/Entry/Logout/Index";
+import LearnDofus from "../Components/Pages/LearnDofus/Index";
+import NotFound from "../Components/Pages/NotFound/Index";
 // Import Pages Admin
 import Admin from "../Components/Admin/Index";
 import CreatePosts from "../Components/Admin/CreatePosts/Index";
@@ -31,7 +33,6 @@ import DeletePosts from "../Components/Admin/DeletePosts/Index";
 import AddMonsters from "../Components/Admin/AddMonsters/Index";
 import DeleteMonsters from "../Components/Admin/DeleteMonsters/Index";
 import CreateCategories from "../Components/Admin/CreateCategories/Index";
-import NotFound from "../Components/Pages/NotFound/Index";
 
 function Router() {
     return (
@@ -67,6 +68,7 @@ function Router() {
                 <Route path="createCategories" element={ <HOC child={CreateCategories} isAuthRequired={true} /> } />
             </Route>
 
+            <Route path="learnDofus" element={ <HOC child={LearnDofus}/> } />
             <Route path="*" element={<NotFound />}/>
         </Routes>
     );

@@ -837,6 +837,31 @@ main {
     border-radius: 5px;
 }
 
+/* LEARN DOFUS PAGE */
+.titleLearnDofus {
+    text-align: center;
+    margin: 20px 0 20px 0;
+    background-color: #514A3C;
+    color: #E5CFB3;
+    border-radius: 5px;
+}
+
+.articleLearnDofus {
+    line-height: 30px;
+}
+
+.imgLearnDofus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgLearnDofus img {
+    width: 100%;
+    margin: 6px 0 6px 0;
+}
+
 /* FOOTER */
 footer {
     background-color: #514A3C;
@@ -853,6 +878,11 @@ footer a {
 
 footer a:hover {
     color: #93866C;
+    text-decoration: none;
+}
+
+.learnDofus {
+    text-decoration: underline;
 }
 
 /* -------------------------------------- START MEDIA QUERIES -------------------------------------- */
@@ -1137,5 +1167,31 @@ footer a:hover {
 
     .article404 img {
         width: 40%;
+    }
+
+    /* LEARN DOFUS PAGE */
+    .titleLearnDofus {
+        background-color: transparent;
+        color: #514A3C;
+        border: 1px solid #514A3C;
+        width: 20%;
+        margin: 20px auto;
+    }
+
+    .imgLearnDofus {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .imgLearnDofus img {
+        width: 30%;
+        margin: 10px;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+    }
+
+    .imgLearnDofus img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px #514A3C;
     }
 }

@@ -13,15 +13,23 @@ function Login() {
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({ pseudo: "", password: "" });
     const [isEmpty, setIsEmpty] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [badPassword, setBadPassword] = useState(false);
 
     const handleLogin = async(e) => {
         e.preventDefault();
 		const inputsSanitized = validate(inputs);
 		const res = await login(inputsSanitized);
-        if (inputs.pseudo === "" || inputs.password === "") {
+        if (inputs.pseudo === "" || inputs.password === "") { // Si les champs sont vides
             setIsEmpty(true);
             return;
-        } else {
+        } else if (res.status === 404) { // Si le pseudo n'existe pas
+            setIsError(true);
+            return;
+        } else if (res.status === 401) { // Si le mot de passe est incorrect
+            setBadPassword(true);
+            return;
+        } else { // Si tout est bon
             localStorage.setItem("auth_token", res.data.token);
             navigate(`/user/${res.data.uuid}`);
         }
@@ -43,6 +51,8 @@ function Login() {
                 </form>
 
                 {isEmpty && <p className='txtErrorEntry'>Veuillez remplir tous les champs</p>}
+                {isError && <p className='txtErrorEntry'>Pseudo incorrect</p>}
+                {badPassword && <p className='txtErrorEntry'>Mot de passe incorrect</p>}
                 <p className='notYetRegistered'>Pas encore de compte ? <Link to="/register">Inscrivez-vous</Link></p>
             </section>
         </main>

@@ -73,7 +73,7 @@ export const login = async (req, res, next) => {
         const {pseudo, password} = req.body;
         const query1 = "SELECT * FROM user WHERE username = ?";
         const [user] = await Query.getDataByValue(query1, pseudo);
-        if(!user || (user.username !== req.body.pseudo)){
+        if(!user || (user.username !== pseudo)){
             res.status(404).json({
                 msg: `User does not exist !`,
             });

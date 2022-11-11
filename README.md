@@ -10,8 +10,6 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 ## Finir le bestiaire
 - Essayer de faire deplier une seule section et pas toutes en même temps ❌
 
-## Créer une page type "lexique" qui expliquerait les termes du jeu (ex: xp, kamas, etc.) à quelqu'un qui ne connait pas le jeu
-
 # TO CHANGE
 ## Clarifier le formulaire pour ajouter un mob
 
@@ -26,6 +24,7 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 ## Page de profil (en cours ♾️)
 ## Page de gestion admin ✔️
 ## Page bestiaire avec option de recherche, filtres et pagination ✔️
+## Page lexique pour comprendre le jeu ✔️
 ## CSS version desktop ✔️
 
 Ce projet est réalisé dans le cadre de ma formation de développeur web full stack. Il s'agit de mon projet final.
