@@ -22,7 +22,7 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 ## Installation
 - Cloner le projet
 - Installer les dépendances avec `npm install`
-- Créer un fichier `.env` à la racine du projet et y ajouter les variables d'environnement suivantes:
+- Créer un fichier `.env` à la racine du dossier server et y ajouter les variables d'environnement suivantes:
 ```js
 LOCAL_PORT = 9000
 TOKEN_SECRET = // Insérer une chaîne de caractères, peut-être générée avec https://www.random.org/strings/
@@ -45,9 +45,6 @@ DB_NAME = dofus_wiki
 
 # Auteur
 - **Black Pearl** - *Développeur Web Full Stack*
-
-# License
-Ce projet est sous licence MIT.
 
 # Crédits
 - **Ankama** - *Informations, images et ressources*
