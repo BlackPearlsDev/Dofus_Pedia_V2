@@ -1,8 +1,9 @@
-function Pagination({ totalPosts, postsPerPage, setCurrentPage, currentPage }) {
+function Pagination({ totalMonsters, monstersPerPage, setCurrentPage, currentPage }) {
     let pages = [];
 
-    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(totalMonsters / monstersPerPage); i++) {
         pages.push(i);
+        console.log('pages : ', pages);
     }
 
     return (

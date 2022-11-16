@@ -7,6 +7,7 @@ import { getAllMonsters } from '../../../services/API/monsters';
 import { loadMonsters } from '../../../store/slices/monsters.slice';
 
 function Bestiary({ monsters }) {
+    console.log('Bestiary: ', monsters);
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));
@@ -16,10 +17,10 @@ function Bestiary({ monsters }) {
     const [bestiaryData, setBestiaryData] = useState(monsters);
     const [currentPage, setCurrentPage] = useState(1);
     // eslint-disable-next-line
-    const [postsPerPage, setPostsPerPage] = useState(20);
-    const lastPostIndex = currentPage * postsPerPage;
-    const firstPostIndex = lastPostIndex - postsPerPage;
-    const currentPosts = bestiaryData.slice(firstPostIndex, lastPostIndex);
+    const [monstersPerPage, setMonstersPerPage] = useState(4); // nombres de monstres par page
+    const lastMonstersIndex = currentPage * monstersPerPage;
+    const firstMonstersIndex = lastMonstersIndex - monstersPerPage;
+    const currentMonsters = bestiaryData.slice(firstMonstersIndex, lastMonstersIndex);
 
     const refreshBestiary = async () => {
         const res = await getAllMonsters();
@@ -38,8 +39,9 @@ function Bestiary({ monsters }) {
             <section className="mainContent">
                 <h2>Le Bestiaire !</h2>
 
-                <MonstersList monsters={currentPosts} />
-                <Pagination totalPosts={bestiaryData.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+                <p className='monstersFound'>{monsters.length} monstres trouvés.</p>
+                <MonstersList monsters={currentMonsters} />
+                <Pagination totalMonsters={bestiaryData.length} monstersPerPage={monstersPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             </section>
         </main>
     )

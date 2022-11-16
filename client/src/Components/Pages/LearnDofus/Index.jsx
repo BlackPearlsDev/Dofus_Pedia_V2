@@ -15,7 +15,7 @@ function LearnDofus() {
                     <h3 className='titleLearnDofus'>Qu'est-ce que Dofus ?</h3>
 
                     <p><strong>Dofus</strong> est un jeu de rôle en ligne massivement multijoueur <strong>(MMORPG)</strong> français développé et édité par Ankama puis par sa filiale <strong>Ankama Games</strong> à sa création en 2004.
-                    Créer au départ par 3 anciens développeurs web, ils s'orientent vers le jeu vidéo en 2002 . Le jeu est sorti en 2004 et est un succès immédiat.</p>
+                    Créé au départ par 3 anciens développeurs web, ils s'orientent vers le jeu vidéo en 2002 . Le jeu est sorti en 2004 et est un succès immédiat.</p>
 
                     <p>Le jeu propose un univers riche dans lequel le joueur a le choix entre <strong>12 classes de personnages jouables</strong> et entièrement personnalisables. Le but est de progresser à travers ce monde, monter en niveau et gagner un maximum d'or et d'équipements pour s'améliorer.</p>
 

@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function MonstersList({ monsters }) {
+function MonstersList({ monsters }, infos) {
+    console.log('MonsterList: ', monsters);
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));
@@ -91,25 +92,25 @@ function MonstersList({ monsters }) {
     const [sort, setSort] = useState('');
     const handleOrderbyName = (e) => {
         setSort(e.target.value);
-        // eslint-disable-next-line
         monsters.sort((a, b) => {
             if (e.target.value === 'asc') {
                 return a.monster_name.localeCompare(b.monster_name);
             } else if (e.target.value === 'desc') {
                 return b.monster_name.localeCompare(a.monster_name);
             }
+            return 0;
         });
     }
 
     const handleOrderbyLevel = (e) => {
         setSort(e.target.value);
-        // eslint-disable-next-line
         monsters.sort((a, b) => {    
             if (e.target.value === 'asc') {
                 return a.level - b.level;
             } else if (e.target.value === 'desc') {
                 return b.level - a.level;
             }
+            return 0;
         });
     }
 
@@ -120,7 +121,6 @@ function MonstersList({ monsters }) {
             <section className="mainContent">
             <div className='bestiarySearchBox'>
                 <input type="searchBar" id='searchBar' placeholder="Rechercher un monstre" onChange={(e) => handleSearch(e)}/>
-                <p className='monstersFound'>{filteredData.length} monstres trouvés.</p>
                 <div className='filtersMonsters'>
                     <label htmlFor="monster-name">Trier par nom</label>
                     <select name="name" id="monster-name" onChange={(e) => handleOrderbyName(e)}>

@@ -80,14 +80,14 @@ function AddMonsters({ecosystem, race, spells}) {
                 <input type="number" name="valueHealth" placeholder="Points de vie" max="100000" onChange={handleInputs} value={inputs.valueHealth}/>
                 <input type="number" name="valuePA" placeholder="PA" max="50" onChange={handleInputs} value={inputs.valuePA}/>
                 <input type="number" name="valuePM" placeholder="PM" max="50" onChange={handleInputs} value={inputs.valuePM}/>
-                <input type="number" name="valueExperience" placeholder="Gain d'éxpérience" max="999999" onChange={handleInputs} value={inputs.valueExperience}/>
-                <input type="number" name="valueInitiative" placeholder="Initiative" max="15000" onChange={handleInputs} value={inputs.valueInitiative}/>
+                <input type="number" name="valueExperience" placeholder="Gain d'éxpérience" max="9999999" onChange={handleInputs} value={inputs.valueExperience}/>
+                <input type="number" name="valueInitiative" placeholder="Initiative" max="20000" onChange={handleInputs} value={inputs.valueInitiative}/>
                 <input type="number" name="valueStrength" placeholder="Puissance Terre" max="5000" onChange={handleInputs} value={inputs.valueStrength}/>
                 <input type="number" name="valueIntelligence" placeholder="Puissance Feu" max="5000" onChange={handleInputs} value={inputs.valueIntelligence}/>
                 <input type="number" name="valueChance" placeholder="Puissance Eau" max="5000" onChange={handleInputs} value={inputs.valueChance}/>
                 <input type="number" name="valueAgility" placeholder="Puissance Air" max="5000" onChange={handleInputs} value={inputs.valueAgility}/>
-                <input type="number" name="valueDodgePA" placeholder="Esquive PA" max="5000" onChange={handleInputs} value={inputs.valueDodgePA}/>
-                <input type="number" name="valueDodgePM" placeholder="Esquive PM" max="5000" onChange={handleInputs} value={inputs.valueDodgePM}/>
+                <input type="number" name="valueDodgePA" placeholder="Esquive PA" max="20000" onChange={handleInputs} value={inputs.valueDodgePA}/>
+                <input type="number" name="valueDodgePM" placeholder="Esquive PM" max="20000" onChange={handleInputs} value={inputs.valueDodgePM}/>
                 <input type="number" name="valueResiNeutral" placeholder="Résistance Neutre" max="5000" onChange={handleInputs} value={inputs.valueResiNeutral}/>
                 <input type="number" name="valueResiEarth" placeholder="Résistance Terre" max="5000" onChange={handleInputs} value={inputs.valueResiEarth}/>
                 <input type="number" name="valueResiFire" placeholder="Résistance Feu" max="5000" onChange={handleInputs} value={inputs.valueResiFire}/>

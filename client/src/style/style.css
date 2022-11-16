@@ -1070,8 +1070,9 @@ footer a:hover {
     }
 
     .monstersFound {
-        text-align: right;
-        margin-right: 20px;
+        width: 50%;
+        margin: 8px auto;
+        margin-left: 53%;
     }
 
     .monsterContent {
@@ -1157,7 +1158,7 @@ footer a:hover {
     }
 
     .monstersFound {
-        margin-right: 30px;
+        margin-left: 58%;
     }
 
     /* PAGE 404 */
