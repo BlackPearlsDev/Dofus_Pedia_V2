@@ -13,18 +13,43 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 # TO CHANGE
 ## Clarifier le formulaire pour ajouter un mob
 
-# DONE ✔️
-## Page Classes avec toutes les classes Outlets + Responsive spécial pour les écrans inférieur à 370px ✔️
-## Page Carte drag + zoom & informations de la géoposition, responsive ✔️
-- Bonus: Afficher les points d'intérêts sur la map (ex: les donjons, hotels de vente, ateliers de craft, etc.) ✔️
-## Page Bestiaire avec un responsive spécial pour les écrans inférieur à 370px ✔️
-## Page de création de compte ✔️
-## Page de connexion ✔️
-## Page de déconnexion ✔️
-## Page de profil (en cours ♾️)
-## Page de gestion admin ✔️
-## Page bestiaire avec option de recherche, filtres et pagination ✔️
-## Page lexique pour comprendre le jeu ✔️
-## CSS version desktop ✔️
+# Installation
+
+## Prérequis
+- Un environnment local (WAMP, MAMP, XAMPP, etc.)
+- Node.js
+
+## Installation
+- Cloner le projet
+- Installer les dépendances avec `npm install`
+- Créer un fichier `.env` à la racine du projet et y ajouter les variables d'environnement suivantes:
+```js
+LOCAL_PORT = 9000
+TOKEN_SECRET = // Insérer une chaîne de caractères, peut-être générée avec https://www.random.org/strings/
+DB_HOST = localhost
+DB_USER = root
+DB_PWD  =
+DB_NAME = dofus_wiki
+```
+- Importer la base de données `dofus_wiki.sql` dans votre environnement local
+- Lancer le serveur avec `npm run dev`
+- Lancer le client avec `npm start`
+- Ouvrir le navigateur à l'adresse `http://localhost:3000`
+
+# Technologies
+- React
+- Node.js
+- Express
+- Axios
+- React Router
+
+# Auteur
+- **Black Pearl** - *Développeur Web Full Stack*
+
+# License
+Ce projet est sous licence MIT.
+
+# Crédits
+- **Ankama** - *Informations, images et ressources*
 
 Ce projet est réalisé dans le cadre de ma formation de développeur web full stack. Il s'agit de mon projet final.
