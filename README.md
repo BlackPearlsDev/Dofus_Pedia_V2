@@ -16,7 +16,7 @@ Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijou
 # Installation
 
 ## Prérequis
-- Un environnment local (WAMP, MAMP, XAMPP, etc.)
+- Un environnement local (WAMP, MAMP, XAMPP, etc.)
 - Node.js
 
 ## Installation
