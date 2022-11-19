@@ -24,7 +24,11 @@ function Header() {
 
     return (
         <header>
+            {widthScreen > 767 && (
+            <>
             <h1>Dofus Pedia</h1>
+            </>
+            )}
 
             <section className='sectionNav'>
                 {widthScreen > 767 ? (

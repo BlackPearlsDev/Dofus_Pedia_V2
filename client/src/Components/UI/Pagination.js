@@ -3,7 +3,6 @@ function Pagination({ totalMonsters, monstersPerPage, setCurrentPage, currentPag
 
     for (let i = 1; i <= Math.ceil(totalMonsters / monstersPerPage); i++) {
         pages.push(i);
-        console.log('pages : ', pages);
     }
 
     return (

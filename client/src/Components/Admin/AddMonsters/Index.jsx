@@ -1,14 +1,20 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { addMonster, addImg } from '../../../services/API/monsters';
+import { getAllMonsters } from '../../../services/API/monsters';
+import { loadMonsters } from '../../../store/slices/monsters.slice';
+
 
 function AddMonsters({ecosystem, race, spells}) {
 
     const fileInput = useRef();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [isEmpty, setIsEmpty] = useState(false);
     const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -31,6 +37,11 @@ function AddMonsters({ecosystem, race, spells}) {
     const handleSubmit = async (e) => {
         const formData = new FormData();
         e.preventDefault();
+        if(inputs.valueName === "" || inputs.valueEcosystem === "" || inputs.valueRace === "" || inputs.valueLevel === "" || inputs.valueHealth === "" || inputs.valuePA === "" || inputs.valuePM === "" || inputs.valueExperience === "" || inputs.valueInitiative === "" || inputs.valueStrength === "" || inputs.valueIntelligence === "" || inputs.valueChance === "" || inputs.valueAgility === "" || inputs.valueDodgePA === "" || inputs.valueDodgePM === "" || inputs.valueResiNeutral === "" || inputs.valueResiEarth === "" || inputs.valueResiFire === "" || inputs.valueResiWater === "" || inputs.valueResiWind === "" || inputs.valueSpells === "" || inputs.valueDrops === "" || inputs.valueZones === "" || inputs.image_name === null) {
+            setIsEmpty(true);
+            return;
+        }
+
         if (inputs.image_name !== null) {
             formData.append('image', inputs.image_name);
             const res1 = await addImg(formData);
@@ -42,6 +53,8 @@ function AddMonsters({ecosystem, race, spells}) {
                 const res2 = await addMonster(datas);
                 if (res2.status === 200) {
                     navigate(`/admin`);
+                    const res = await getAllMonsters();
+                    dispatch(loadMonsters(res.data.result));
                 }
             }
         } else {
@@ -62,6 +75,7 @@ function AddMonsters({ecosystem, race, spells}) {
         <section className="mainContent">
             <h2>Ajouter un monstre</h2>
 
+            {isEmpty && <p className="txtErrorEntry">Veuillez remplir tous les champs</p>}
             <form onSubmit={handleSubmit} className='formAddMonster'>
                 <input type="text" name="valueName" placeholder="Nom du monstre" onChange={handleInputs} value={inputs.valueName}/>
                 <select name="valueEcosystem" id="ecosystem" onChange={handleInputs} value={inputs.valueEcosystem}>

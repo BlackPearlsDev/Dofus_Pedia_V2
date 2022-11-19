@@ -10,6 +10,7 @@ function DeleteMonster({monsters}) {
     const dispatch = useDispatch();
 
     const handleDelete = async (e, monsterId) => {
+        console.log('monsterId: ', monsterId);
         e.preventDefault();
         const res = await deleteMonster(monsterId);
         if (res.status === 200) {
@@ -28,7 +29,7 @@ function DeleteMonster({monsters}) {
                         <article key={index} className="listMonstersToDelete">
                             <p>{monster.monster_name}</p>
 
-                            <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, (index + 1))}> Supprimer </button>
+                            <button className='btnDeleteMonster' onClick={(e) => handleDelete(e, (monster.id))}> Supprimer </button>
                         </article>
                     )
                 })}

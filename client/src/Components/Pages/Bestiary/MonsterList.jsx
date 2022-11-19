@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-function MonstersList({ monsters }, infos) {
-    console.log('MonsterList: ', monsters);
+function MonstersList({ monsters }) {
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));

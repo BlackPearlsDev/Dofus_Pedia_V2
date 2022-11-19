@@ -8,6 +8,15 @@
     src: local('Achafexp'), url('../assets/font/Achafexp.woff') format('woff');
 }
 
+@keyframes slide {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
 /* RESET CSS */
 * {
     margin: 0;
@@ -33,11 +42,14 @@ body {
 
 /* HEADER + NAV */
 header {
-    background: url("../assets/img/header.jpg")  no-repeat;
+    background: url("../assets/img/header_3.jpg");
+    background-size: cover;
+    background-position-y: -15px;
     padding: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    box-shadow: 0px -5px 50px -5px #000000;
 }
 
 .header-nav {
@@ -45,7 +57,7 @@ header {
     flex-direction: column;
     padding: 10px;
     position: absolute;
-    top: 93px;
+    top: 65px;
     right: 0;
     background-color: #93866C;
     z-index: 100;
@@ -934,6 +946,7 @@ footer a:hover {
         flex-direction: column;
         padding: 0;
         width: 100%;
+        background-position-y: -30px;
     }
 
     .sectionNav {
@@ -980,6 +993,13 @@ footer a:hover {
     /* MAIN ELEMENTS */
     header {
         background-size: 100%;
+        min-height: 20vh;
+    }
+
+    h1 {
+        position: absolute;
+        top: 20px;
+        animation: slide 2s ease-in-out infinite alternate-reverse both;
     }
 
     .header-nav a:hover {
@@ -994,6 +1014,12 @@ footer a:hover {
     .sectionNews {
         width: 45%;
         margin-top: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .sectionNews:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px #514A3C;
     }
 
     .positionNewsRow {
@@ -1002,6 +1028,14 @@ footer a:hover {
         justify-content: space-around;
         align-items: center;
         margin-top: 34px;
+    }
+
+    .positionNewsRow:hover section {
+        opacity: 0.9;
+    }
+
+    .positionNewsRow:hover .sectionNews:hover {
+        opacity: 1;
     }
 
     /* CLASSES PAGE */
@@ -1133,6 +1167,17 @@ footer a:hover {
 
 /* ordinateur apres 1440px */
 @media screen and (min-width: 1440px) {
+
+    /* MAIN ELEMENTS */
+    header {
+        background-size: 100%;
+        background-position-y: -100px;
+    }
+
+    h1 {
+        top: 20px;
+        font-size: 8rem;
+    }
 
     /* USER ENTRY PAGE */
     .formUserEntry {
