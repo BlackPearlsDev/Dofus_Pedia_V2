@@ -757,6 +757,70 @@ main {
     border-radius: 5px;
 }
 
+/* ADMIN UPDATE NEWS OUTLET */
+.postsPosition {
+    margin: 0 0 12px 0;
+}
+
+.editPostArticle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #EBDBC6;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.editPostArticle #title {
+    width: 100%;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    border: transparent;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.editPostArticle #content {
+    width: 100%;
+    padding: 8px;
+    resize: vertical;
+    font-size: 1.4rem;
+    height: 180px;
+}
+
+.editPostArticle :nth-child(3), .editPostArticle :nth-child(4) {
+    width: 100%;
+    text-align: center;
+    background-color: #93866C;
+    color: #EBDBC6;
+    padding: 4px;
+    border: transparent;
+    font-size: 1.6rem;
+}
+
+.editPostArticle select {
+    width: 100%;
+    padding: 4px;
+    background-color: #93866C;
+    color: #EBDBC6;
+    border: 1px solid #514A3C;
+}
+
+.editPostArticle input[type="submit"] {
+    background-color: #93866C;
+    color: #EBDBC6;
+    width: 100%;
+    margin-top: 6px;
+    padding: 6px;
+    border: 1px solid #514A3C;
+}
+
 /* ADMIN DELETE NEWS OUTLET */
 .newsToDelete {
     display: flex;

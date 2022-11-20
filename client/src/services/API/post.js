@@ -23,3 +23,19 @@ export const deletePost = async (id) => {
         return error.response;
     }
 }
+
+export const updatePost = async (id, post) => {
+    try {
+        return await axios.put(`/api/v1/post/update/${id}`, post);
+    } catch (error) {
+        return error.response;
+    }
+}
+
+export const getPostById = async (id) => {
+    try {
+        return await axios.get(`/api/v1/post/${id}`);
+    } catch (error) {
+        return error.response;
+    }
+}

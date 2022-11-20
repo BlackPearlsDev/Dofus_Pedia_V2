@@ -63,3 +63,21 @@ export const remove = async (req, res, next) => {
         return next(error);
     }
 }
+
+// on modifie un post
+export const update = async (req, res, next) => {
+    try {
+        const query = "UPDATE post SET title = ?, content = ?, category = ? WHERE id = ?";
+        const {title, content, category} = req.body;
+        const {id} = req.params;
+
+        const post = await Query.save(query, [title, content, category, id]);
+        res.status(200).json({
+            msg: "One post is update",
+            result: post,
+        });
+        return;
+    } catch (error) {
+        return next(error);
+    }
+}

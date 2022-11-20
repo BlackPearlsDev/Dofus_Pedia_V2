@@ -33,6 +33,8 @@ import DeletePosts from "../Components/Admin/DeletePosts/Index";
 import AddMonsters from "../Components/Admin/AddMonsters/Index";
 import DeleteMonsters from "../Components/Admin/DeleteMonsters/Index";
 import CreateCategories from "../Components/Admin/CreateCategories/Index";
+import EditPosts from "../Components/Admin/EditPosts/Index";
+import PostDetails from "../Components/Admin/PostDetails/Index";
 
 function Router() {
     return (
@@ -66,6 +68,8 @@ function Router() {
                 <Route path="addMonsters" element={ <HOC child={AddMonsters} isAuthRequired={true} /> } />
                 <Route path="deleteMonsters" element={ <HOC child={DeleteMonsters} isAuthRequired={true} /> } />
                 <Route path="createCategories" element={ <HOC child={CreateCategories} isAuthRequired={true} /> } />
+                <Route path="editPosts" element={ <HOC child={EditPosts} isAuthRequired={true} /> } />
+                <Route path="editPosts/:id" element={ <HOC child={PostDetails} isAuthRequired={true} /> } />
             </Route>
 
             <Route path="learnDofus" element={ <HOC child={LearnDofus}/> } />

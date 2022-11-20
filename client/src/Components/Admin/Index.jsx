@@ -25,6 +25,7 @@ function Admin() {
                     <h2 className='h2PanelAdmin'>Les news</h2>
                     <div className='divDivider'></div>
                     <Link to='createPosts' onClick={handleToggle}>Écrire une news</Link>
+                    <Link to='editPosts' onClick={handleToggle}>Modifier une news</Link>
                     <Link to='deletePosts' onClick={handleToggle}>Supprimer une news</Link>
                     <Link to='createCategories' onClick={handleToggle}>Créer une catégorie news</Link>
 

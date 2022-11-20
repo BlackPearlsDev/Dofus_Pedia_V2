@@ -6,11 +6,12 @@ import { addPost } from '../../../services/API/post';
 import { getAllCategories } from "../../../services/API/categories";
 import { loadCategories } from '../../../store/slices/categories.slice';
 
-function CreatePosts({ categories }) {
+function CreatePosts({ categories, userInfos }) {
+    console.log('userInfos', userInfos);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [inputs, setInputs] = useState({ title: "", content: "" , author: "", category: "" });
+    const [inputs, setInputs] = useState({ title: "", content: "" , author: userInfos.username, category: "" });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,7 +54,11 @@ function CreatePosts({ categories }) {
 
                 <textarea name="content" id="content" cols="30" rows="10" placeholder='Informations...' onChange={(e) => setInputs({...inputs, content: e.target.value})} required></textarea>
 
-                <input type="text" name='author' id='author' placeholder='Auteur' onChange={(e) => setInputs({...inputs, author: e.target.value})} required/>
+                <div className='newsTogether'>
+                    <label htmlFor="author">Auteur</label>
+                    {/* <input type="text" name='author' id='author' placeholder='Auteur' onChange={(e) => setInputs({...inputs, author: e.target.value})} required/> */}
+                    <input type="text" name='author' id='author' defaultValue={userInfos.username} disabled/>
+                </div>
 
                 <input type="submit" value="Valider"/>
             </form>
