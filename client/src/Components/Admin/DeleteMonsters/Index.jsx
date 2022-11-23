@@ -10,7 +10,6 @@ function DeleteMonster({monsters}) {
     const dispatch = useDispatch();
 
     const handleDelete = async (e, monsterId) => {
-        console.log('monsterId: ', monsterId);
         e.preventDefault();
         const res = await deleteMonster(monsterId);
         if (res.status === 200) {

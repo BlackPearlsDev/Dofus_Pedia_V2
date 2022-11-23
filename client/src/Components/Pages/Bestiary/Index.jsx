@@ -7,7 +7,6 @@ import { getAllMonsters } from '../../../services/API/monsters';
 import { loadMonsters } from '../../../store/slices/monsters.slice';
 
 function Bestiary({ monsters }) {
-    // console.log('Bestiary: ', monsters);
 
     const dispatch = useDispatch();
     const { isToggle } = useSelector((state) => ({...state.menu}));

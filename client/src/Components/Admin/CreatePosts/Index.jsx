@@ -7,7 +7,6 @@ import { getAllCategories } from "../../../services/API/categories";
 import { loadCategories } from '../../../store/slices/categories.slice';
 
 function CreatePosts({ categories, userInfos }) {
-    console.log('userInfos', userInfos);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();

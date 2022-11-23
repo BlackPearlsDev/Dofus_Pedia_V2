@@ -2,13 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { getPostById } from "../../../services/API/post";
 
 function EditPosts({posts}) {
-    console.log('posts: ', posts);
 
     const navigate = useNavigate();
 
     const handleEdit = async (e, postId) => {
         e.preventDefault();
-        console.log('postId: ', postId);
         const res = await getPostById(postId);
         if (res.status === 200) {
             navigate(`/admin/editPosts/${postId}`);

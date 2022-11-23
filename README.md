@@ -1,17 +1,4 @@
-Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijoueur en ligne (MMORPG) de Ankama. Elle est développée par moi, fan de Dofus, pour les fans de Dofus. Elle est disponible en ligne à l'adresse (à venir). Elle est également disponible en version mobile (responsive), pour Android et iOS. Elle est développée en React et Node.js. 
-
-# TODO
-## Revoir l'interface l'ergonomie du formulaire d'ajout de mob (select different)
-
-## Classes /!\ FAIRE UN SEUL COMPOSANT DYNAMIQUE QUI GERE TOUTES LES CLASSES /!\
-- dans le router path="/classes/:name" (name = nom de la classe)
-- dans le composant, faire un fetch sur l'API pour récupérer les infos de la classe
-
-## Finir le bestiaire
-- Essayer de faire deplier une seule section et pas toutes en même temps ❌
-
-# TO CHANGE
-## Clarifier le formulaire pour ajouter un mob
+Dofus Pedia est une encyclopédie de Dofus, le jeu de rôle massivement multijoueur en ligne (MMORPG) de Ankama. Elle est développée par moi, fan de Dofus, pour les fans de Dofus. Elle est disponible en ligne à l'adresse (à venir). Elle est également disponible en version mobile (responsive), pour Android et iOS. Elle est développée en React et Node.js.
 
 # Installation
 
